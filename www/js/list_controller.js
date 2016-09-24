@@ -1,10 +1,14 @@
-var app = angular.module("list.controller",[])
-app.controller("listController", function($scope, $ionicModal, $timeout){
+
+angular.module("list.controller",[])
+
+.controller("listController", function($scope, $ionicModal, $timeout, $http){
 
 	$scope.items = [];
 	$scope.item = "";
+	$scope.data = {
+  	showDelete: false
+  };
 
-  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/add_item.html', {
     scope: $scope
   }).then(function(modal) {
@@ -20,7 +24,7 @@ app.controller("listController", function($scope, $ionicModal, $timeout){
   };
 
   $scope.submitItemForm = function() {
-    console.log('Adding Item', $scope.item);
+    console.log('Adding Item', this.item);
     var input = this.item
     if(input.length > 0){
     	$scope.addItem(input);
@@ -28,17 +32,26 @@ app.controller("listController", function($scope, $ionicModal, $timeout){
     $timeout(function() {
       $scope.closeItemForm();
     }, 100);
-  };
-
-  $scope.data = {
-  	showDelete: false
+    this.item = ""
   };
 
   $scope.addItem = function (item) {
-  	$scope.items.push(item);
+  	if ($scope.items.indexOf(item) == -1) {
+    	$scope.items.push(item);
+		}
 	};
   
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
+	};
+
+	$scope.findRecipes = function() {
+		var post = { "ingredients": $scope.items };
+		console.log(angular.toJson(post));
+		$http.post("http://recip-e.herokuapp.com/api/ingredients", angular.toJson(post))
+		.then(function(response){
+      console.log(response);
+      $scope.recipesReturned = response;
+    })
 	};
 })
