@@ -27,6 +27,12 @@
         <ion-item menu-close href="#/app/playlists">
           Playlists
         </ion-item>
+        <ion-item ng-show="!user.id" menu-close href="#/app/sign_in">
+          Sign In
+        </ion-item>
+        <ion-item ng-show="user.id" menu-close href="#/app/sign_in">
+          Sign Out
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
