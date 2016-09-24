@@ -1,4 +1,3 @@
-
 angular.module("list.controller",[])
 
 .controller("listController", function($scope, $ionicModal, $timeout, $http){
