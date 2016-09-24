@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Add Item</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeItemForm()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="submitItemForm()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Ingredient</span>
+          <input type="text" name="item" ng-model="item">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit"">Add Item</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
