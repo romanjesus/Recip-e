@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $stateProvider
 
     .state('app', {
@@ -90,4 +90,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/sign_in');
+
+  $authProvider.configure({
+      apiUrl: 'http://localhost:3000/api'
+    })
 });
+
