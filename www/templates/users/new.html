@@ -7,7 +7,7 @@
   {{error}}
 </div>
 
-<form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+<form ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
   <div class="form-group">
     <label>email</label>
     <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control"/>

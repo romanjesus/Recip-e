@@ -22,4 +22,6 @@ angular.module('userSessions.controller', [])
     $rootScope.$on('auth:logout-error', function(ev, reason) {
       alert('logout failed because ' + reason.errors[0]);
     });
+
+
   });
