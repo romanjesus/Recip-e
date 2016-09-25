@@ -1,7 +1,11 @@
 <br>
 <br>
 <br>
+<br>
 
+<div class="alert alert-danger" role="alert" ng-show="error">
+  {{error}}
+</div>
 <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
   <div class="form-group">
     <label>email</label>

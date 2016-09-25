@@ -5,6 +5,11 @@ angular.module('userSessions.controller', [])
       $ionicHistory.nextViewOptions({
         disableBack: true
       });
-    $state.go('app.pantry');
+      $state.go('app.pantry');
+    });
+
+    $scope.$on('auth:login-error', function(ev, reason) {
+      $scope.error = reason.errors[0];
+      alert("THERE WAS AN ERROR! - " + reason.errors[0]);
     });
   });
