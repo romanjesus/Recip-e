@@ -39,7 +39,7 @@ angular.module("list.controller",[])
     	$scope.items.push(item);
 		}
 	};
-  
+
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
 	};
@@ -47,7 +47,7 @@ angular.module("list.controller",[])
 	$scope.findRecipes = function() {
 		var post = { "ingredients": $scope.items };
 		console.log(angular.toJson(post));
-		$http.post("http://recip-e.herokuapp.com/api/ingredients", angular.toJson(post))
+		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
 		.then(function(response){
       console.log(response);
       $scope.recipesReturned = response;
