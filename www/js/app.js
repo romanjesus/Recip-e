@@ -22,6 +22,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
   });
 })
 
+.service('recipeService', function() {
+  var recipeList = [];
+
+  var addRecipes = function(newObj) {
+      recipeList.push(newObj);
+  };
+
+  var getRecipes = function(){
+      return recipeList;
+  };
+
+  return {
+    addProduct: addRecipes,
+    getProducts: getRecipes
+  };
+
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 

@@ -1,5 +1,5 @@
 <ion-view ng-controller="recipeController">
-
- 
-
+	<ion-item ng-repeat="recipe in recipes" ng-init="getRecipes()">
+	  {{ recipe }}
+	</ion-item>
 </ion-view>

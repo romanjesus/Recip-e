@@ -1,6 +1,6 @@
 angular.module("list.controller",[])
 
-.controller("listController", function($scope, $ionicModal, $timeout, $http){
+.controller("listController", function($scope, $ionicModal, $timeout, $http, recipeService){
 
 	$scope.items = [];
 	$scope.item = "";
