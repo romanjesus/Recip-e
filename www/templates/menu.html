@@ -18,13 +18,13 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/pantry">
+        <ion-item ng-show="user.id" menu-close href="#/app/pantry">
           My Pantry
         </ion-item>
-        <ion-item menu-close href="#/app/profile">
+        <ion-item ng-show="user.id" menu-close href="#/app/profile">
           My Profile
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item ng-show="user.id" menu-close href="#/app/playlists">
           Playlists
         </ion-item>
         <ion-item ng-show="!user.id" menu-close href="#/app/sign_in">
