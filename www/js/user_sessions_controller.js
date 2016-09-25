@@ -10,6 +10,5 @@ angular.module('userSessions.controller', [])
 
     $scope.$on('auth:login-error', function(ev, reason) {
       $scope.error = reason.errors[0];
-      alert("THERE WAS AN ERROR! - " + reason.errors[0]);
     });
   });
