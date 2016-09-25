@@ -9,8 +9,7 @@ angular.module("user.controller",[])
   });
 
   $scope.$on('auth:registration-email-error', function(ev, reason) {
-    $scope.error = reason.errors[0];
-    alert("FUCK AN ERROR!");
+    $scope.error = "Invalid registration entry!"
   });
 })
 
