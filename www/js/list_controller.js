@@ -50,7 +50,7 @@ angular.module("list.controller",[])
 		$http.post("http://recip-e.herokuapp.com/api/ingredients", angular.toJson(post))
 		.then(function(response){
       console.log(response);
-      $scope.recipesReturned = response;
+      return $scope.recipes = response;
     })
 	};
 })
