@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'ng-token-auth'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $location) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,6 +20,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
       StatusBar.styleDefault();
     }
   });
+  // $rootScope.$on('auth:login-success', function(ev) {
+  //   $window.location.assign('/pantry')
+  //   alert('You successfully signed in');
+  // });
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {
@@ -85,6 +89,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
       'menuContent': {
         templateUrl: 'templates/user_sessions/new.html',
         controller: 'UserSessionsCtrl'
+      }
+    }
+  })
+
+  .state('app.register', {
+    url: '/register',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/users/new.html',
+        controller: 'UserCtrl'
       }
     }
   });
