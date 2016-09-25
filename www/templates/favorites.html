@@ -1,5 +1,11 @@
-<ion-view view-title="My Profile">
+<ion-view view-title="My Favorite Recipes">
   <ion-content>
-    <h1>My Favorite Recipes</h1>
+    <h1 class="page-title">My Favorite Recipes</h1>
+    <ion-list>
+      <ion-item ng-repeat="recipe in favorites">
+        {{recipe.name}}
+        <img ng-src="recipe.image" alt="recipe.name" height="150px">
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
