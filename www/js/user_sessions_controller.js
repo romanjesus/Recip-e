@@ -18,4 +18,8 @@ angular.module('userSessions.controller', [])
       });
       $state.go('app.sign_in');
     });
+
+    $rootScope.$on('auth:logout-error', function(ev, reason) {
+      alert('logout failed because ' + reason.errors[0]);
+    });
   });
