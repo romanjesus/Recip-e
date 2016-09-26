@@ -1,6 +1,6 @@
 angular.module("list.controller",[])
 
-.controller("listController", function($scope, $ionicModal, $timeout, $http, recipeService){
+.controller("listController", function($scope, $ionicModal, $timeout, $http){
 
 	$scope.items = [];
 	$scope.item = "";
@@ -44,16 +44,5 @@ angular.module("list.controller",[])
   	$scope.items.splice(index, 1);
 	};
 
-	$scope.findRecipes = function() {
-		var post = { "ingredients": $scope.items };
-		console.log(angular.toJson(post));
-		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
-		.then(function(response){
-      console.log(response);
-      $scope.recipes = response.data.body;
-      console.log($scope.recipes)
-      return $scope.recipes
-    })
-	};
 
 })

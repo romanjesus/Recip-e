@@ -1,9 +1,14 @@
-<ion-view>
+<ion-view view-title="Results" align-title="center" ng-controller="recipeController">
 	<ion-content>
-		<ion-list ng-controller="listController">
-			<ion-item ng-repeat="recipe in recipes">
-			{{ recipe.title }}
-			</ion-item>
-		</ion-list>
+		<div class="list">
+			<a class="item item-thumbnail-left"
+				href="" target="_blank"
+				ng-repeat="recipe in recipes">
+				<img ng-src="{{recipe.image}}">
+				<h2 class="recipe-list"> {{ recipe.title }} </h2>
+				<p> Used Ingredients: {{ recipe.usedIngredientCount}}<p>
+				<p> Missed Ingredients: {{ recipe.missedIngredientCount}}<p>
+				</a>
+		</div>
 	<ion-content>
 </ion-view>
