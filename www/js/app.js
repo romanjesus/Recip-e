@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'userInfo.service', 'ng-token-auth'])
 
 .run(function($ionicPlatform, $rootScope, $location) {
   $ionicPlatform.ready(function() {
@@ -59,7 +59,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
     url: '/favorites',
     views: {
       'menuContent': {
-        templateUrl: 'templates/favorites.html'
+        templateUrl: 'templates/favorites.html',
+        controller: 'favoritesController'
       }
     }
   })

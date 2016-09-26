@@ -1,12 +1,12 @@
 angular.module("favorites.controller",[])
 
-.controller("favoritesController", function($scope, $http){
+.controller("favoritesController", function($scope, $http, $auth, AuthService){
 
   $scope.getFavorites = function() {
-    $http.get("http://recip-e.herokuapp.com/api/user/" + user.id + "/favorite_recipes")
+    $http.get("http://localhost:3000/api/users/" + AuthService.currentUser() + "/favorite_recipes")
     .success(function(data){
       // alert("SUCCESS!");
-      console.log(data)
+      console.log("peanut gallery");
       $scope.favorite_recipes = data;
     })
     .error(function(data) {
