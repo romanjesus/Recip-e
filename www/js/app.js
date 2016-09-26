@@ -19,9 +19,15 @@ angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'use
       StatusBar.styleDefault();
     }
   });
-  $rootScope.$on('auth:validation-success', function(ev, $auth) {
+  $rootScope.$on('auth:validation-success', function(ev) {
+    // console.log($cookies);
+    debugger
     $rootScope.userId = ev.currentScope.user.id;
   });
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+    debugger
+    // do something
+  })
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {

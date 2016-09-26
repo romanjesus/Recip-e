@@ -5,7 +5,6 @@ angular.module("favorites.controller",[])
   $scope.getFavorites = function() {
     // $auth.validateUser();
     console.log($rootScope.user.id);
-    // debugger
     $http.get("http://localhost:3000/api/users/" + $rootScope.user.id + "/favorite_recipes")
     .success(function(data){
       // alert("SUCCESS!");
