@@ -3,9 +3,11 @@
     <h1 class="page-title">My Favorite Recipes</h1>
     <ion-list ng-init="getFavorites()" show-delete="shouldShowDelete">
       <ion-item ng-repeat="recipe in favorite_recipes">
-        <a href="/#/app/recipes/{{recipe.body.id}}"><img ng-src="{{recipe.body.images[0]}}" alt="{{recipe.body.title}}" height="150px"></a>
-        <ion-delete-button class="ion-minus-circled"></ion-delete-button>
-        {{recipe.body.title}}
+        <div class="recipe-info">
+          <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+          <a href="/#/app/recipes/{{recipe.body.id}}"><img ng-src="{{recipe.body.images[0]}}" alt="{{recipe.body.title}}" height="150px"></a>
+          {{recipe.body.title}}
+        </div>
       </ion-item>
     </ion-list>
   </ion-content>
