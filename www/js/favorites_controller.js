@@ -6,8 +6,8 @@ angular.module("favorites.controller",[])
     $http.get("http://localhost:3000/api/users/" + AuthService.currentUser() + "/favorite_recipes")
     .success(function(data){
       // alert("SUCCESS!");
-      console.log("peanut gallery");
-      $scope.favorite_recipes = data.body;
+      console.log(data);
+      $scope.favorite_recipes = data;
     })
     .error(function(data) {
       alert("ERROR");

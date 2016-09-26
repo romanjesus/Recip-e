@@ -4,9 +4,9 @@
     <ion-list ng-init="getFavorites()" show-delete="shouldShowDelete">
       Userid: {{user.id}}
       <ion-item ng-repeat="recipe in favorite_recipes">
-        <img ng-src="recipe.image" alt="recipe.name" height="150px">
+        <img ng-src="{{recipe.body.images[0]}}" alt="{{recipe.body.title}}" height="150px">
         <ion-delete-button class="ion-minus-circled"></ion-delete-button>
-        {{recipe.name}}
+        {{recipe.body.title}}
       </ion-item>
     </ion-list>
   </ion-content>
