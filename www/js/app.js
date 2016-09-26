@@ -81,6 +81,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pantry.controller', 
         controller: 'UserCtrl'
       }
     }
+  })
+
+  .state('app.recipe', {
+    url: "/recipes/:recipeId",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/show_recipe.html",
+        controller: 'recipeController'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/sign_in');
