@@ -1,6 +1,6 @@
-angular.module("list.controller",[])
+angular.module("pantry.controller",[])
 
-.controller("listController", function($scope, $ionicModal, $timeout, $http){
+.controller("pantryController", function($scope, $ionicModal, $timeout, $http){
 
 	$scope.items = [];
 	$scope.item = "";
@@ -23,20 +23,20 @@ angular.module("list.controller",[])
   };
 
   $scope.submitItemForm = function() {
-    console.log('Adding Item', this.item);
-    var input = this.item
+    var input = this.item;
+    console.log('Adding Item', input);
     if(input.length > 0){
     	$scope.addItem(input);
   	}
     $timeout(function() {
       $scope.closeItemForm();
     }, 100);
-    this.item = ""
+    this.item = "";
   };
 
   $scope.addItem = function (item) {
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push(item);
+    	$scope.items.push({name: item});
 		}
 	};
 
@@ -44,13 +44,23 @@ angular.module("list.controller",[])
   	$scope.items.splice(index, 1);
 	};
 
-	$scope.findRecipes = function() {
-		var post = { "ingredients": $scope.items };
-		console.log(angular.toJson(post));
-		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
-		.then(function(response){
-      console.log(response);
-      $scope.recipesReturned = response;
+
+  $scope.getList = function() {
+    $http.get("http://localhost:3000/api/pantry")
+    .then(function(response){
+      console.log(response.data[0]);
+      $scope.items = response.data;
+      return response
     })
-	};
+  };
+
+  $scope.saveList = function() {
+    var postData = {"ingredients": $scope.items}
+    $http.post("http://localhost:3000/api/pantry", angular.toJson(postData))
+    .then(function(response) {
+      console.log('Successfully saved!')
+    })
+  }
+
+
 })

@@ -1,22 +1,25 @@
-<ion-view ng-controller="listController"> 
+<ion-view ng-controller="pantryController" view-title="Pantry" >
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" menu-close ng-click="openItemForm()"><i class="ion-plus-circled"> </i>Add Ingredient</button>
+    <button class="button button-clear button-positive" menu-close ng-click="openItemForm()"><i class="ion-plus-circled"> </i>Add</button>
+
     <button class="button button-clear button-assertive" ng-click="data.showDelete = !data.showDelete"><i class="ion-minus-circled"> </i>Delete</button>
   </ion-nav-buttons>
-  <ion-content class="has-footer">
 
-  	<ion-list show-delete="data.showDelete">
-  		<ion-item ng-repeat="item in items"> 
-  			{{ item }}
-  		<ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
-  		</ion-delete-button>
-  		</ion-item>
-  	</ion-list>
-  </ion-content>
+<ion-content class="has-footer">
+  <ion-list ng-init="getList()"show-delete="data.showDelete">
+    <ion-item ng-repeat="item in items">
+    <ion-checkbox ng-model="isChecked">
+            {{item.name}}
+          </ion-checkbox>
+     <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
 
-  <ion-footer-bar class="bar bar-dark">
+  <ion-footer-bar class="bar bar-dark" ng-controller="recipeController">
 	<div class="button-bar" ng-click="findRecipes()">
 		<a class="button button-dark icon-left ion-search" href='#/app/recipes'>Find Recipes</a>
+    <a ng-click="saveList()" class="button button-dark icon-right ion-search" href='#/app/pantry'>Save List</a>
 	</div>
 </ion-footer-bar>
 </ion-view>

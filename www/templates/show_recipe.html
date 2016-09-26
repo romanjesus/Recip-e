@@ -1,0 +1,27 @@
+<ion-view>
+	<ion-content>
+		<div class="list card">
+		  <div class="item item-avatar">
+		    <img src="{{recipe.image}}">
+		    <h2>{{recipe.title}}</h2>
+		    <p>Place Holder</p>
+		  </div>
+		  <div class="item item-image">
+		    <img src="{{recipe.image}}">
+		  </div>
+		  <a class="item item-icon-left item-icon-right assertive" href="#/app/recipes/{{recipe.id}}/instructions">
+		    <i class="icon ion-fork"></i>
+		    		    Get Detailed Instructions
+		    <i class="icon ion-knife"></i>
+		  </a>
+		  <div class="item item-body">
+    		<p>
+    		Ready in: {{recipe.readyInMinutes}} minutes <br>
+    		Servings: {{recipe.servings}}<br><br>
+
+    		Basic Instructions: <span ng-bind-html="recipe.instructions"></span>
+    		</p>
+    	</div>
+		</div>
+	</ion-content>
+</ion-view>

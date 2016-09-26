@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'userInfo.service', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'list.controller', 'pantry.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
 .run(function($ionicPlatform, $rootScope, $location, $auth) {
   $ionicPlatform.ready(function() {
@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'use
     views: {
       'menuContent': {
         templateUrl: 'templates/pantry.html',
-        controller: 'listController'
+        controller: 'pantryController'
       }
     }
   })
@@ -54,7 +54,6 @@ angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'use
     views: {
       'menuContent': {
         templateUrl: 'templates/recipe_list.html',
-        controller: 'recipeController'
       }
     }
   })
@@ -90,10 +89,10 @@ angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'use
   })
 
   .state('app.recipe', {
-    url: '/recipes/:recipeId',
+    url: "/recipes/:recipeId",
     views: {
-      'menuContent': {
-        templateUrl: 'templates/recipe.html',
+      'menuContent' :{
+        templateUrl: "templates/show_recipe.html",
         controller: 'recipeController'
       }
     }
@@ -103,6 +102,8 @@ angular.module('starter', ['ionic', 'list.controller', 'recipe.controller', 'use
 
   $authProvider.configure({
       apiUrl: 'http://localhost:3000/api'
-    })
+  })
+
+
 });
 
