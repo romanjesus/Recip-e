@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
 .run(function($ionicPlatform, $rootScope, $location) {
   $ionicPlatform.ready(function() {
@@ -73,30 +73,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
     }
   })
 
-  .state('app.profile', {
-      url: '/profile',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/profile.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.favorites', {
+    url: '/favorites',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/favorites.html'
       }
     }
   })
