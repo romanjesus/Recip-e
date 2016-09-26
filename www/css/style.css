@@ -14,7 +14,10 @@ h2.recipe-list{
 
 .ingredient-header{
 	text-decoration: underline;
-	font-size: 1.2em;
-	white-space: normal;
+	font-size: 1em;
+}
 
+h2.recipe-header{
+	white-space: normal;
+	height: 2.4em;
 }
