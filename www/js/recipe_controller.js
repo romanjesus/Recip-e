@@ -6,7 +6,7 @@ angular.module("recipe.controller",[])
 	$rootScope.recipe = {}
 
 	$scope.findRecipes = function() {
-		var post = { "ingredients": $scope.items };
+		var post = { "ingredients": cleanList($scope.items) };
 		console.log(angular.toJson(post));
 		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
 		.then(function(response){
@@ -24,9 +24,14 @@ angular.module("recipe.controller",[])
 		})
 	}
 
-	$scope.renderHTML = function(html_code){
-        return $sce.trustAsHtml(html_code);
-    };
+	var cleanList = function(items) {
+		var array = []
+		debugger
+		for(var i = 0; i < items.length; i++){
+			array.push(items[i].name)
+		}
+		return array	
+	}
 
 })
 
