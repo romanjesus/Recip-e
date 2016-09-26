@@ -23,26 +23,44 @@ angular.module("pantry.controller",[])
   };
 
   $scope.submitItemForm = function() {
-    console.log('Adding Item', this.item);
-    var input = this.item
+    var input = this.item;
+    console.log('Adding Item', input);
     if(input.length > 0){
     	$scope.addItem(input);
   	}
     $timeout(function() {
       $scope.closeItemForm();
     }, 100);
-    this.item = ""
+    this.item = "";
   };
 
   $scope.addItem = function (item) {
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push(item);
+    	$scope.items.push({name: item});
 		}
 	};
 
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
 	};
+
+
+  $scope.getList = function() {
+    $http.get("http://localhost:3000/api/pantry")
+    .then(function(response){
+      console.log(response.data[0]);
+      $scope.items = response.data;
+      return response
+    })
+  };
+
+  $scope.saveList = function() {
+    var postData = {"ingredients": $scope.items}
+    $http.post("http://localhost:3000/api/pantry", angular.toJson(postData))
+    .then(function(response) {
+      console.log('Successfully saved!')
+    })
+  }
 
 
 })
