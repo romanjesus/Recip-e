@@ -7,3 +7,13 @@ h2.recipe-list{
 .center{
      text-align:center;
 }
+
+.text-size {
+	font-size: .8em;
+}
+
+.ingredient-header{
+	text-decoration: underline;
+		font-size: 1.2em;
+
+}
