@@ -1,6 +1,6 @@
-angular.module("list.controller",[])
+angular.module("pantry.controller",[])
 
-.controller("listController", function($scope, $ionicModal, $timeout, $http){
+.controller("pantryController", function($scope, $ionicModal, $timeout, $http){
 
 	$scope.items = [];
 	$scope.item = "";

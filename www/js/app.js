@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'pantry.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
 .run(function($ionicPlatform, $rootScope, $location) {
   $ionicPlatform.ready(function() {
@@ -26,24 +26,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
   // });
 })
 
-.service('recipeService', function() {
-  var recipeList = [];
-
-  var addRecipes = function(newObj) {
-      recipeList.push(newObj);
-  };
-
-  var getRecipes = function(){
-      return recipeList;
-  };
-
-  return {
-    addProduct: addRecipes,
-    getProducts: getRecipes
-  };
-
-})
-
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $stateProvider
 
@@ -58,7 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
     views: {
       'menuContent': {
         templateUrl: 'templates/pantry.html',
-        controller: 'listController'
+        controller: 'pantryController'
       }
     }
   })
@@ -68,7 +50,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
     views: {
       'menuContent': {
         templateUrl: 'templates/recipe_list.html',
-        controller: 'listController'
       }
     }
   })
@@ -106,6 +87,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
 
   $authProvider.configure({
       apiUrl: 'http://localhost:3000/api'
-    })
+  })
+
+
 });
 
