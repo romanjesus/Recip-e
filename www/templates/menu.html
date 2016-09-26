@@ -21,7 +21,7 @@
         <ion-item ng-show="user.id" menu-close href="#/app/pantry">
           My Pantry
         </ion-item>
-        <ion-item ng-show="user.id" menu-close href="#/app/favorites">
+        <ion-item ng-show="user.id" menu-close href="#/app/favorites/{{user.id}}">
           My Favorite Recipes
         </ion-item>
         <ion-item ng-show="!user.id" menu-close href="#/app/sign_in">
