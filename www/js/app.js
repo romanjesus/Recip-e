@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
     views: {
       'menuContent': {
         templateUrl: 'templates/recipe_list.html',
-        controller: 'recipeController'
+        controller: 'listController'
       }
     }
   })

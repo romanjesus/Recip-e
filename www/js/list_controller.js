@@ -50,7 +50,10 @@ angular.module("list.controller",[])
 		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
 		.then(function(response){
       console.log(response);
-      return $scope.recipes = response;
+      $scope.recipes = response.data.body;
+      console.log($scope.recipes)
+      return $scope.recipes
     })
 	};
+
 })
