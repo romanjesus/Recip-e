@@ -4,6 +4,10 @@ app.factory('AuthService', function($auth) {
   var currentUser = 3;
   console.log($auth.user);
 
+  // this.getUserFromServer = function(userid) {
+  //   User.get(userId).$promise.then(user) { _user = user;  };
+  // }
+
   return {
     currentUser: function() { return currentUser; }
   };
