@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", function($scope, $ionicModal, $timeout, $http){
+.controller("pantryController", function($scope, $ionicModal, $timeout, $http, $rootScope){
 
 	$scope.items = [];
 	$scope.item = "";
@@ -61,5 +61,13 @@ angular.module("pantry.controller",[])
       console.log('Successfully saved!')
     })
   }
+
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
+    if (toState.name === "app.pantry") {
+      for(var i = 0; i < $scope.items.length; i++) {
+        $scope.items[i].checked = "false";
+      }
+    }
+  })
 
 })

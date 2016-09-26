@@ -8,7 +8,7 @@
 <ion-content class="has-footer">
   <ion-list ng-init="getList()"show-delete="data.showDelete">
     <ion-item ng-repeat="item in items">
-      <ion-checkbox ng-model="item.checked">
+      <ion-checkbox ng-model="item.checked" ng-init="item.checked=false">
         {{item.name}}
       </ion-checkbox>
      <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
