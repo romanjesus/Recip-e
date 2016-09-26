@@ -1,6 +1,6 @@
-<ion-view ng-controller="listController"> 
+<ion-view ng-controller="pantryController" view-title="Pantry" > 
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" menu-close ng-click="openItemForm()"><i class="ion-plus-circled"> </i>Add Ingredient</button>
+    <button class="button button-clear button-positive" menu-close ng-click="openItemForm()"><i class="ion-plus-circled"> </i>Add</button>
     <button class="button button-clear button-assertive" ng-click="data.showDelete = !data.showDelete"><i class="ion-minus-circled"> </i>Delete</button>
   </ion-nav-buttons>
   <ion-content class="has-footer">
@@ -14,7 +14,7 @@
   	</ion-list>
   </ion-content>
 
-  <ion-footer-bar class="bar bar-dark">
+  <ion-footer-bar class="bar bar-dark" ng-controller="recipeController">
 	<div class="button-bar" ng-click="findRecipes()">
 		<a class="button button-dark icon-left ion-search" href='#/app/recipes'>Find Recipes</a>
 	</div>
