@@ -62,5 +62,4 @@ angular.module("pantry.controller",[])
     })
   }
 
-
 })

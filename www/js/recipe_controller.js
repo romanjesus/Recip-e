@@ -30,8 +30,18 @@ angular.module("recipe.controller",[])
 		for(var i = 0; i < items.length; i++){
 			array.push(items[i].name)
 		}
-		return array	
+		return array
 	}
+
+	var takeCheckedBoxes = function(items) {
+		var checkedItems = [];
+		for (var i = 0; i < items.length; i++) {
+			if(item.checked){
+				checkedItems.push(item);
+			}
+		}
+		return checkedItems;
+  }
 
 })
 
