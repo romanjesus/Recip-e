@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'userInfo.service', 'ng-token-auth'])
 
-.run(function($ionicPlatform, $rootScope, $location) {
+.run(function($ionicPlatform, $rootScope, $location, $auth) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,10 +19,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
       StatusBar.styleDefault();
     }
   });
-  // $rootScope.$on('auth:login-success', function(ev) {
-  //   $window.location.assign('/pantry')
-  //   alert('You successfully signed in');
-  // });
+  $rootScope.$on('auth:validation-success', function(ev, $auth) {
+    $rootScope.userId = ev.currentScope.user.id;
+  });
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {
@@ -55,7 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'list.controller', 'r
   })
 
   .state('app.favorites', {
-    url: '/favorites',
+    url: '/favorites/:userId',
     views: {
       'menuContent': {
         templateUrl: 'templates/favorites.html',
