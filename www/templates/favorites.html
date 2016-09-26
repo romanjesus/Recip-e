@@ -1,8 +1,7 @@
 <ion-view view-title="My Favorite Recipes">
   <ion-content ng-controller="favoritesController">
     <h1 class="page-title">My Favorite Recipes</h1>
-    <input ng-model="uzer" ng-init="getUserId(user)">
-    <ion-list ng-init="getFavorites(uzer)">
+    <ion-list ng-init="getFavorites()">
       Userid: {{user.id}}
       <ion-item ng-repeat="recipe in favorite_recipes">
         <img ng-src="recipe.image" alt="recipe.name" height="150px">

@@ -7,7 +7,7 @@ angular.module("favorites.controller",[])
     .success(function(data){
       // alert("SUCCESS!");
       console.log("peanut gallery");
-      $scope.favorite_recipes = data;
+      $scope.favorite_recipes = data.body;
     })
     .error(function(data) {
       alert("ERROR");
