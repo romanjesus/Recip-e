@@ -3,3 +3,7 @@ h2.recipe-list{
 	white-space: normal;
 	height: 3.6em;
 }
+
+.center{
+     text-align:center;
+}
