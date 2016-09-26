@@ -2,9 +2,9 @@
   <ion-content ng-controller="favoritesController">
     <h1 class="page-title">My Favorite Recipes</h1>
     <ion-list ng-init="getFavorites()" show-delete="shouldShowDelete">
-      Userid: {{user.id}}
       <ion-item ng-repeat="recipe in favorite_recipes">
-        <a href="/#app/recipe/{{recipe.id}}"><img ng-src="{{recipe.body.images[0]}}" alt="{{recipe.body.title}}" height="150px"></a>
+        UserID: {{user.id}}
+        <a href="/#/app/recipes/{{recipe.body.id}}"><img ng-src="{{recipe.body.images[0]}}" alt="{{recipe.body.title}}" height="150px"></a>
         <ion-delete-button class="ion-minus-circled"></ion-delete-button>
         {{recipe.body.title}}
       </ion-item>
