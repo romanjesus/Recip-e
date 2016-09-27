@@ -63,10 +63,17 @@ angular.module("pantry.controller",[])
   }
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
+    // Watch to see if we return to the page.
+    // If we do then set all the checkboxes to false. *** Needed to overwrite on a back.
     if (toState.name === "app.pantry") {
       for(var i = 0; i < $scope.items.length; i++) {
         $scope.items[i].checked = "false";
       }
+    }
+    // Watch to see if we leave the page.
+    // If we do save the list just in case.
+    if (fromState === "app.pantry") {
+      $scope.saveList();
     }
   })
 
