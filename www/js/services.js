@@ -3,13 +3,13 @@ angular.module("services", [])
   return "CHECKED";
 }])
 .factory("listOfIngredients", [function() {
-  var list = "LIST";
+  this.list;
 
-  this.getIngredients = function(obj) {
-    list = obj;
+  var getIngredients = function(obj) {
+    this.list = obj;
   }
 
-  return list;
+  return { list: this.list, getIngredients: getIngredients }
 }])
 
 

@@ -1,6 +1,6 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', function($scope, $http, $rootScope, $stateParams){
+.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'listOfIngredients',function($scope, $http, $rootScope, $stateParams, listOfIngredients){
 
 	$rootScope.recipes = []
 	$rootScope.instructions = []
@@ -13,6 +13,8 @@ angular.module("recipe.controller",[])
 
 	$scope.findRecipes = function() {
 		// console.log($scope.items);
+		$scope.items = listOfIngredients.list;
+		debugger
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
 		// console.log("posted ingredients: " + post["ingredients"]);
 		console.log(angular.toJson(post));
