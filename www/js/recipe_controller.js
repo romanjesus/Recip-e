@@ -6,7 +6,8 @@ angular.module("recipe.controller",[])
 	$rootScope.recipe = {}
 
 	$scope.findRecipes = function() {
-		var post = { "ingredients": cleanList($scope.items) };
+		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
+		console.log(post["ingredients"]);
 		console.log(angular.toJson(post));
 		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
 		.then(function(response){
@@ -25,11 +26,21 @@ angular.module("recipe.controller",[])
 	}
 
 	var cleanList = function(items) {
-		var array = []
+		var array = [];
 		for(var i = 0; i < items.length; i++){
 			array.push(items[i].name)
 		}
 		return array
 	}
+
+	var takeCheckedBoxes = function(items) {
+		var checkedItems = [];
+		for (var i = 0; i < items.length; i++) {
+			if(items[i].checked){
+				checkedItems.push(items[i]);
+			}
+		}
+		return checkedItems;
+  }
 
 })
