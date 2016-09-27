@@ -15,7 +15,7 @@ angular.module("recipe.controller",[])
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
 		console.log(post["ingredients"]);
 		console.log(angular.toJson(post));
-		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
+		$http.post("https://recip-e.herokuapp.com/api/ingredients", angular.toJson(post))
 		.then(function(response){
       console.log(response);
       $rootScope.recipes = (response.data.body);
@@ -24,7 +24,7 @@ angular.module("recipe.controller",[])
 
 	$scope.getRecipe = function(id) {
 		var recipe_id = { "id": id }
-		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
+		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
 			console.log($rootScope.recipe)
@@ -33,7 +33,7 @@ angular.module("recipe.controller",[])
 
 	$scope.getInstructions = function(){
 		var new_id = { "id": $stateParams.recipeId }
-		$http.post("http://localhost:3000/api/instructions", angular.toJson(new_id))
+		$http.post("https://recip-e.herokuapp.com/api/instructions", angular.toJson(new_id))
 		.then(function(response){
 			$rootScope.instructions = response.data.body[0].steps
 			console.log($rootScope.instructions)
@@ -64,7 +64,7 @@ angular.module("recipe.controller",[])
 
 	var getRecipeOnLoad = function() {
 		var recipe_id = { "id": $stateParams.recipeId }
-		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
+		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
 			console.log($rootScope.recipe)
