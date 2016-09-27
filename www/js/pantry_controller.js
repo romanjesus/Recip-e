@@ -121,9 +121,9 @@ angular.module("pantry.controller",[])
 
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
-  // $scope.$on('$ionicView.beforeLeave', function() {
-  //   console.log("LEAVING THE PANTRY");
-  //   debugger
-  // });
+  $scope.$on('$ionicView.beforeLeaving', function() {
+    debugger
+    console.log("LEAVING THE PANTRY");
+  });
 
 }])
