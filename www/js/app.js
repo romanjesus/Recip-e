@@ -31,6 +31,7 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
   })
 
   .state('app.pantry', {
+    cache: false,
     url: '/pantry',
     views: {
       'menuContent': {
@@ -104,6 +105,5 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
   $authProvider.configure({
       apiUrl: 'https://recip-e.herokuapp.com/api'
   })
-
 
 });
