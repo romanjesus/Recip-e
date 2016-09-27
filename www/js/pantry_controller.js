@@ -74,6 +74,7 @@ angular.module("pantry.controller",[])
         $scope.items[i].checked = "false";
       }
     }
+    $scope.data.showDelete = false;
   })
 
 }])
