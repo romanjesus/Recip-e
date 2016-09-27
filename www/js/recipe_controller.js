@@ -1,6 +1,6 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', function($scope, $http, $rootScope, $stateParams){
 
 	$rootScope.recipes = []
 	$rootScope.instructions = []
