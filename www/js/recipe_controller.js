@@ -67,9 +67,4 @@ angular.module("recipe.controller",[])
 		return checkedItems;
   }
 
-<<<<<<< HEAD
 }])
-
-=======
-})
->>>>>>> master
