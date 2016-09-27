@@ -7,7 +7,7 @@ angular.module("recipe.controller",[])
 	$rootScope.recipe = {}
 
 	$scope.$on('$ionicView.enter', function() {
-	    console.log("view entered")
+	    console.log("Recipe view entered");
 	    getRecipeOnLoad();
 	})
 

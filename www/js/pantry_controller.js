@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$rootScope', '$state', 'checkedIngredients', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $rootScope, $state, checkedIngredients, listOfIngredients){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'checkedIngredients', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $state, checkedIngredients, listOfIngredients){
 
   var myItems = $scope.items;
 
@@ -106,21 +106,18 @@ angular.module("pantry.controller",[])
     })
   }
 
-
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options, myItems){
-    // Watch to see if we return to the page.
-    // If we do then set all the checkboxes to false. *** Needed to overwrite on a back.
-    if (toState.name === "app.pantry") {
-      for(var i = 0; i < $scope.items.length; i++) {
-        $scope.items[i].checked = false;
-      }
-      $scope.data.showDelete = false;
-      $scope.selectToggle = "Select";
-      $scope.getList();
-      console.log(checkedIngredients);
-      console.log(listOfIngredients);
-      debugger
+  // Watch to see if we return to the page.
+  $scope.$on('$ionicView.enter', function() {
+    console.log("Pantry view entered");
+    // If we do then set all the checkboxes to false.
+    // *** Needed to overwrite on a back.
+    // Also, reset the delete buttons and the toggle display.
+    for(var i = 0; i < $scope.items.length; i++) {
+      $scope.items[i].checked = false;
     }
-  });
+    $scope.data.showDelete = false;
+    $scope.selectToggle = "Select";
+    $scope.getList();
+  })
 
 }])
