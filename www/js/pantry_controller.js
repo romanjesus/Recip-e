@@ -2,6 +2,8 @@ angular.module("pantry.controller",[])
 
 .controller("pantryController", function($scope, $ionicModal, $timeout, $http, $rootScope){
 
+  var myItems = $scope.items;
+
 	$scope.items = [];
 	$scope.item = "";
 	$scope.data = {
@@ -55,6 +57,8 @@ angular.module("pantry.controller",[])
   };
 
   $scope.saveList = function() {
+    console.log("Sent save request!");
+    console.log($scope.items);
     var postData = {"ingredients": $scope.items}
     $http.post("http://localhost:3000/api/pantry", angular.toJson(postData))
     .then(function(response) {
@@ -62,18 +66,13 @@ angular.module("pantry.controller",[])
     })
   }
 
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options, myItems){
     // Watch to see if we return to the page.
     // If we do then set all the checkboxes to false. *** Needed to overwrite on a back.
     if (toState.name === "app.pantry") {
       for(var i = 0; i < $scope.items.length; i++) {
         $scope.items[i].checked = "false";
       }
-    }
-    // Watch to see if we leave the page.
-    // If we do save the list just in case.
-    if (fromState === "app.pantry") {
-      $scope.saveList();
     }
   })
 
