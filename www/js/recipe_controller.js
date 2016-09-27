@@ -13,8 +13,6 @@ angular.module("recipe.controller",[])
 
 	$scope.findRecipes = function() {
 		// console.log($scope.items);
-		$scope.items = listOfIngredients.list;
-		debugger
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
 		// console.log("posted ingredients: " + post["ingredients"]);
 		console.log(angular.toJson(post));
@@ -26,6 +24,7 @@ angular.module("recipe.controller",[])
 	}
 
 	$scope.getRecipe = function(id) {
+		console.log("List: " + listOfIngredients.list);
 		var recipe_id = { "id": id }
 		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
