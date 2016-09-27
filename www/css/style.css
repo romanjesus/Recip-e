@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 h2.recipe-list{
 	white-space: normal;
-	height: 3.6em;
+	height: 2.4em;
 }
 
 .center{
@@ -20,4 +20,8 @@ h2.recipe-list{
 h2.recipe-header{
 	white-space: normal;
 	height: 2.4em;
+}
+
+.item.wrap, .item-content.wrap {
+white-space: normal;
 }
