@@ -1,9 +1,27 @@
 /* Empty. Add your own CSS if you like */
 h2.recipe-list{
 	white-space: normal;
-	height: 3.6em;
+	height: 2.4em;
 }
 
 .center{
      text-align:center;
+}
+
+.text-size {
+	font-size: .8em;
+}
+
+.ingredient-header{
+	text-decoration: underline;
+	font-size: 1em;
+}
+
+h2.recipe-header{
+	white-space: normal;
+	height: 2.4em;
+}
+
+.item.wrap, .item-content.wrap {
+white-space: normal;
 }

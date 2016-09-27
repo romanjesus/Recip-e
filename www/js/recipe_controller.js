@@ -3,7 +3,13 @@ angular.module("recipe.controller",[])
 .controller("recipeController", ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
 
 	$rootScope.recipes = []
+	$rootScope.instructions = []
 	$rootScope.recipe = {}
+
+	$scope.$on('$ionicView.enter', function() {
+	    console.log("view entered")
+	    getRecipeOnLoad();
+	});
 
 	$scope.findRecipes = function() {
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
@@ -25,12 +31,30 @@ angular.module("recipe.controller",[])
 		})
 	}
 
+	$scope.getInstructions = function(){
+		var new_id = { "id": $stateParams.recipeId }
+		$http.post("http://localhost:3000/api/instructions", angular.toJson(new_id))
+		.then(function(response){
+			$rootScope.instructions = response.data.body[0].steps
+			console.log($rootScope.instructions)
+		})
+	}
+
 	var cleanList = function(items) {
 		var array = [];
 		for(var i = 0; i < items.length; i++){
 			array.push(items[i].name)
 		}
 		return array
+	}
+
+	var getRecipeOnLoad = function() {
+		var recipe_id = { "id": $stateParams.recipeId }
+		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
+		.then(function(response){
+			$rootScope.recipe = response.data.body
+			console.log($rootScope.recipe)
+		})
 	}
 
 	var takeCheckedBoxes = function(items) {
@@ -43,5 +67,9 @@ angular.module("recipe.controller",[])
 		return checkedItems;
   }
 
+<<<<<<< HEAD
 }])
 
+=======
+})
+>>>>>>> master

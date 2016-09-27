@@ -87,6 +87,16 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
         controller: 'recipeController'
       }
     }
+  })
+
+  .state('app.recipeInstructions', {
+    url: "/recipes/:recipeId/instructions",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/show_instructions.html",
+        controller: 'recipeController'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/sign_in');
@@ -97,4 +107,3 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
 
 
 });
-
