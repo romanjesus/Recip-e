@@ -25,6 +25,8 @@ angular.module("recipe.controller",[])
 
 	$scope.getRecipe = function(id) {
 		console.log("List: " + listOfIngredients.list);
+		$scope.myItems = listOfIngredients.list;
+		debugger
 		var recipe_id = { "id": id }
 		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
