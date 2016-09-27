@@ -26,12 +26,10 @@ angular.module("recipe.controller",[])
 
 	var cleanList = function(items) {
 		var array = []
-		debugger
 		for(var i = 0; i < items.length; i++){
 			array.push(items[i].name)
 		}
-		return array	
+		return array
 	}
 
 })
-
