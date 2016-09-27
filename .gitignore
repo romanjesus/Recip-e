@@ -6,3 +6,5 @@ platforms/
 plugins/
 .env
 .DS_Store
+.io-config.json
+ionic.config.json
