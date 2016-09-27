@@ -5,6 +5,10 @@ angular.module("recipe.controller",[])
 	$rootScope.recipes = []
 	$rootScope.instructions = []
 	$rootScope.recipe = {}
+	$scope.data = {
+    speechText: ''
+  };
+  $scope.recognizedText = '';
 
 	$scope.$on('$ionicView.enter', function() {
 	    console.log("view entered")
@@ -66,6 +70,19 @@ angular.module("recipe.controller",[])
 		}
 		return checkedItems;
   }
+
+  $scope.speakText = function() {
+    window.TTS.speak({
+           text: $scope.data.speechText,
+           locale: 'en-GB',
+           rate: 0.7
+       }, function () {
+           // Do Something after success
+       }, function (reason) {
+           // Handle the error case
+        alert(reason+"");
+       });
+  };
 
 })
 
