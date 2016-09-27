@@ -1,8 +1,6 @@
 angular.module("favorites.controller",[])
 
-.controller("favoritesController", ['$scope', 'userId', '$http', '$rootScope', function($scope, userId, $http, $rootScope){
-
-  debugger
+.controller("favoritesController", ['$scope', '$http', function($scope, $http){
 
   $scope.getFavorites = function() {
     // $auth.validateUser();
