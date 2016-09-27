@@ -6,6 +6,9 @@ angular.module("pantry.controller",[])
 
 	$scope.items = [];
 	$scope.item = "";
+  $scope.checkCount = 0;
+  $scope.selectToggle = "Select";
+
 	$scope.data = {
   	showDelete: false
   };
@@ -23,6 +26,21 @@ angular.module("pantry.controller",[])
   $scope.closeItemForm = function() {
     $scope.modal.hide();
   };
+
+  $scope.selectAllChecks = function() {
+    if ($scope.selectToggle === "Select") {
+      debugger
+      for(var i = 0; i < $scope.items.length; i++) {
+        $scope.items[i].checked = "true";
+      }
+      $scope.selectToggle = "Deselect";
+    } else {
+      for(var i = 0; i < $scope.items.length; i++) {
+        $scope.items[i].checked = "false";
+      }
+      $scope.selectToggle = "Select";
+    }
+  }
 
   $scope.submitItemForm = function() {
     var input = this.item;
@@ -73,8 +91,9 @@ angular.module("pantry.controller",[])
       for(var i = 0; i < $scope.items.length; i++) {
         $scope.items[i].checked = "false";
       }
+      $scope.data.showDelete = false;
     }
-    $scope.data.showDelete = false;
+
   })
 
 }])
