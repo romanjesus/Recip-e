@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'pantry.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
 .run(function($ionicPlatform, $rootScope, $location, $auth) {
   $ionicPlatform.ready(function() {
@@ -19,13 +19,6 @@ angular.module('starter', ['ionic', 'pantry.controller', 'recipe.controller', 'u
       StatusBar.styleDefault();
     }
   });
-  $rootScope.$on('auth:validation-success', function(ev) {
-    // console.log($cookies);
-    $rootScope.userId = ev.currentScope.user.id;
-  });
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    // do something
-  })
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {

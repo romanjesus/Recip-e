@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", function($scope, $ionicModal, $timeout, $http, $rootScope){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$rootScope', function($scope, $ionicModal, $timeout, $http, $rootScope){
 
   var myItems = $scope.items;
 
@@ -76,4 +76,4 @@ angular.module("pantry.controller",[])
     }
   })
 
-})
+}])

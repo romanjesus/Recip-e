@@ -1,6 +1,6 @@
 angular.module("user.controller",[])
 
-.controller("UserCtrl", function($scope, $state, $ionicHistory, $auth){
+.controller("UserCtrl", ['$scope', '$state', '$ionicHistory', '$auth', function($scope, $state, $ionicHistory, $auth){
 
   $scope.handleRegBtnClick = function() {
       $auth.submitRegistration($scope.registrationForm)
@@ -22,5 +22,5 @@ angular.module("user.controller",[])
   $scope.$on('auth:registration-email-error', function(ev, reason) {
     $scope.error = "Invalid registration entry!"
   });
-})
+}])
 
