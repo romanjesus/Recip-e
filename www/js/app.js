@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'pantry.controller', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
-.run(function($ionicPlatform, $rootScope, $location, $auth) {
+.run(function($ionicPlatform, $rootScope, $location, $auth, message) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

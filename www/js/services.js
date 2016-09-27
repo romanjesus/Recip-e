@@ -1,13 +1,7 @@
-var app = angular.module("userInfo.service", [])
+angular.module("services", [])
+.factory("message", [function() {
+  return "Hello you bastards";
+}])
 
-app.factory('AuthService', function($auth, $rootScope) {
-  var currentUser = 3;
-  // this.getUserFromServer = function(userid) {
-  //   User.get(userId).$promise.then(user) { _user = user;  };
-  // }
-  // console.log($rootScope);
 
-  return {
-    currentUser: function() { return currentUser; }
-  };
-});
+

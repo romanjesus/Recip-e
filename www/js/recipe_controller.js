@@ -1,6 +1,6 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", function($scope, $sce, $http, $rootScope, $ionicHistory){
+.controller("recipeController", function($scope, $http, $rootScope){
 
 	$rootScope.recipes = []
 	$rootScope.recipe = {}
