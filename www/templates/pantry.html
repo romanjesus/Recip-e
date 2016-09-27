@@ -18,11 +18,8 @@
 
   <ion-footer-bar class="bar bar-dark" ng-controller="recipeController">
 	<div class="button-bar" ng-click="findRecipes()">
-		<a class="button icon-left ion-search" href='#/app/recipes'>Find Recipes</a>
+		<a class="button icon-left ion-search" ng-click="saveList()" href='#/app/recipes'>Find Recipes</a>
   </div>
-  <div class="button-bar" ng-click="saveList()">
-    <a class="button icon-right ion-search" href='#/app/pantry'>Save List</a>
-	</div>
 </ion-footer-bar>
 
 </ion-view>
