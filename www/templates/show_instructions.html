@@ -2,7 +2,7 @@
 	<ion-content>
 		<h1 class="center">Instructions</h1>
 			<ion-list>
-				<ion-item ng-repeat="step in instructions" class="wrap">
+				<ion-item ng-repeat="step in instructions" class="wrap" ng-click="speakText(step.step)">
 					<span>{{step.number}}: {{step.step}}</span>
 				</ion-item>
 			</ion-list>
