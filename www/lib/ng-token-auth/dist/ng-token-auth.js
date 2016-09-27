@@ -49,7 +49,6 @@ angular.module('ng-token-auth', ['ipCookie']).provider('$auth', function() {
         return (parseInt(headers['expiry'], 10) * 1000) || null;
       },
       handleLoginResponse: function(resp) {
-        console.log(resp.data)
         return resp.data;
       },
       handleAccountUpdateResponse: function(resp) {
