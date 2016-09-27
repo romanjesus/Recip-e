@@ -1,6 +1,6 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", function($scope, $http, $rootScope){
+.controller("recipeController", ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
 
 	$rootScope.recipes = []
 	$rootScope.recipe = {}
@@ -43,5 +43,5 @@ angular.module("recipe.controller",[])
 		return checkedItems;
   }
 
-})
+}])
 
