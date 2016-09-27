@@ -29,14 +29,13 @@ angular.module("pantry.controller",[])
 
   $scope.selectAllChecks = function() {
     if ($scope.selectToggle === "Select") {
-      debugger
       for(var i = 0; i < $scope.items.length; i++) {
-        $scope.items[i].checked = "true";
+        $scope.items[i].checked = true;
       }
       $scope.selectToggle = "Deselect";
     } else {
       for(var i = 0; i < $scope.items.length; i++) {
-        $scope.items[i].checked = "false";
+        $scope.items[i].checked = false;
       }
       $scope.selectToggle = "Select";
     }
@@ -89,7 +88,7 @@ angular.module("pantry.controller",[])
     // If we do then set all the checkboxes to false. *** Needed to overwrite on a back.
     if (toState.name === "app.pantry") {
       for(var i = 0; i < $scope.items.length; i++) {
-        $scope.items[i].checked = "false";
+        $scope.items[i].checked = false;
       }
       $scope.data.showDelete = false;
     }
