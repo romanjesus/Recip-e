@@ -13,19 +13,38 @@ angular.module("pantry.controller",[])
   	showDelete: false
   };
 
+
   $ionicModal.fromTemplateUrl('templates/add_item.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
+
   $scope.openItemForm = function() {
     $scope.modal.show();
   };
 
+
   $scope.closeItemForm = function() {
     $scope.modal.hide();
   };
+
+
+  $scope.countUpdate = function(itemStatus) {
+    if (itemStatus === true) {
+      $scope.checkCount++;
+      if ($scope.checkCount === $scope.items.length){
+        $scope.selectToggle = "Deselect";
+      }
+    } else {
+      $scope.checkCount--;
+      if ($scope.selectToggle === "Deselect"){
+        $scope.selectToggle = "Select";
+      }
+    }
+  }
+
 
   $scope.selectAllChecks = function() {
     if ($scope.selectToggle === "Select") {
@@ -41,6 +60,7 @@ angular.module("pantry.controller",[])
     }
   }
 
+
   $scope.submitItemForm = function() {
     var input = this.item;
     console.log('Adding Item', input);
@@ -53,11 +73,13 @@ angular.module("pantry.controller",[])
     this.item = "";
   };
 
+
   $scope.addItem = function (item) {
   	if ($scope.items.indexOf(item) == -1) {
     	$scope.items.push({name: item});
 		}
 	};
+
 
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
@@ -73,6 +95,7 @@ angular.module("pantry.controller",[])
     })
   };
 
+
   $scope.saveList = function() {
     console.log("Sent save request!");
     console.log($scope.items);
@@ -82,6 +105,7 @@ angular.module("pantry.controller",[])
       console.log('Successfully saved!')
     })
   }
+
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options, myItems){
     // Watch to see if we return to the page.
