@@ -1,6 +1,6 @@
 angular.module("services", [])
-.factory("userId", [function() {
-  return 3;
+.factory("checkedIngredients", [function() {
+
 }])
 
 

@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.controller', 'userSessions.controller','user.controller', 'favorites.controller', 'ng-token-auth'])
 
-.run(function($ionicPlatform, $rootScope, $location, $auth) {
+.run(function($ionicPlatform, $rootScope, $location, $auth, userId) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,10 +18,6 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
-  $rootScope.$on('auth:validation-success', function(ev) {
-    // console.log($cookies);
-    $rootScope.userId = ev.currentScope.user.id;
   });
 })
 
