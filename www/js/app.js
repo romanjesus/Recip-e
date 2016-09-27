@@ -21,13 +21,8 @@ angular.module('starter', ['ionic', 'pantry.controller', 'recipe.controller', 'u
   });
   $rootScope.$on('auth:validation-success', function(ev) {
     // console.log($cookies);
-    debugger
     $rootScope.userId = ev.currentScope.user.id;
   });
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    debugger
-    // do something
-  })
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {
