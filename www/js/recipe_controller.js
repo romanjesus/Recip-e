@@ -5,15 +5,11 @@ angular.module("recipe.controller",[])
 	$rootScope.recipes = []
 	$rootScope.instructions = []
 	$rootScope.recipe = {}
-	$scope.data = {
-    speechText: ''
-  };
-  $scope.recognizedText = '';
 
 	$scope.$on('$ionicView.enter', function() {
 	    console.log("view entered")
 	    getRecipeOnLoad();
-	});
+	})
 
 	$scope.findRecipes = function() {
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
@@ -24,7 +20,7 @@ angular.module("recipe.controller",[])
       console.log(response);
       $rootScope.recipes = (response.data.body);
     })
-	};
+	}
 
 	$scope.getRecipe = function(id) {
 		var recipe_id = { "id": id }
@@ -43,6 +39,20 @@ angular.module("recipe.controller",[])
 			console.log($rootScope.instructions)
 		})
 	}
+
+	$scope.speakText = function(text) {
+    window.TTS.speak({
+           text: text,
+           locale: 'en-JM',
+           rate: 1.3
+       }, function () {
+           // Do Something after success
+       }, function (reason) {
+           // Handle the error case
+        alert(reason+"");
+       });
+  };
+
 
 	var cleanList = function(items) {
 		var array = [];
@@ -70,19 +80,6 @@ angular.module("recipe.controller",[])
 		}
 		return checkedItems;
   }
-
-  $scope.speakText = function() {
-    window.TTS.speak({
-           text: $scope.data.speechText,
-           locale: 'en-GB',
-           rate: 0.7
-       }, function () {
-           // Do Something after success
-       }, function (reason) {
-           // Handle the error case
-        alert(reason+"");
-       });
-  };
 
 })
 
