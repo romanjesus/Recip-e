@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$rootScope', '$state', function($scope, $ionicModal, $timeout, $http, $rootScope, $state){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$rootScope', '$state', 'checkedIngredients', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $rootScope, $state, checkedIngredients, listOfIngredients){
 
   var myItems = $scope.items;
 
@@ -117,6 +117,9 @@ angular.module("pantry.controller",[])
       $scope.data.showDelete = false;
       $scope.selectToggle = "Select";
       $scope.getList();
+      console.log(checkedIngredients);
+      console.log(listOfIngredients);
+      debugger
     }
   });
 
