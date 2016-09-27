@@ -1,6 +1,6 @@
 angular.module("services", [])
-.factory("message", [function() {
-  return "Hello you bastards";
+.factory("userId", [function() {
+  return 3;
 }])
 
 
