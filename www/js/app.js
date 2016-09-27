@@ -105,5 +105,4 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
       apiUrl: 'http://localhost:3000/api'
   })
 
-
 });
