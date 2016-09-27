@@ -1,10 +1,11 @@
 <ion-view view-title="">
 	<ion-content>
 		<div class="list card">
-		  <div class="item item-avatar">
-		    <img src="{{recipe.image}}">
-		    <h2 class="recipe-header">{{recipe.title}}</h2>
-		    <p>Place Holder</p>
+		  <div>
+		    <h1 class="center recipe-header">{{recipe.title}}</h1>
+		    <p class="center">
+		    	<i class="icon ion-heart"> Favorite this recipe</i>
+		    </p>
 		  </div>
 		  <div class="item item-image">
 		    <img src="{{recipe.image}}">
@@ -24,7 +25,7 @@
     			<br>
 	    		<ul>
 	    			<li class="center text-size" ng-repeat="ingredient in recipe.extendedIngredients">
-						{{ingredient.amount}} {{ingredient.unitLong}} {{ingredient.name}}
+						{{ingredient.amount | number : fractionSize}} {{ingredient.unitLong}} {{ingredient.name}}
 	    			</li>
 	    		</ul>
 	    		<br>

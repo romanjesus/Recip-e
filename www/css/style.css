@@ -17,11 +17,16 @@ h2.recipe-list{
 	font-size: 1em;
 }
 
-h2.recipe-header{
+h1.recipe-header{
 	white-space: normal;
 	height: 2.4em;
+	font-size: 1.8em;
 }
 
 .item.wrap, .item-content.wrap {
 white-space: normal;
+}
+
+body {
+	background-color: grey;
 }
