@@ -25,7 +25,7 @@
     			<br>
 	    		<ul>
 	    			<li class="center text-size" ng-repeat="ingredient in recipe.extendedIngredients">
-						{{ingredient.amount}} {{ingredient.unitLong}} {{ingredient.name}}
+						{{ingredient.amount | number : fractionSize}} {{ingredient.unitLong}} {{ingredient.name}}
 	    			</li>
 	    		</ul>
 	    		<br>
