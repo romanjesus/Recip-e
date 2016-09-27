@@ -1,6 +1,6 @@
 angular.module('userSessions.controller', [])
 
-  .controller('UserSessionsCtrl', function ($scope, $state, $ionicHistory, $rootScope) {
+  .controller('UserSessionsCtrl', ['$scope', '$state', '$ionicHistory', '$rootScope', function ($scope, $state, $ionicHistory, $rootScope) {
     $scope.$on('auth:login-success', function() {
       $ionicHistory.nextViewOptions({
         disableBack: true
@@ -24,4 +24,4 @@ angular.module('userSessions.controller', [])
     });
 
 
-  });
+  }]);

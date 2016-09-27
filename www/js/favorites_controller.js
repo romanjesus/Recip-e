@@ -1,11 +1,10 @@
 angular.module("favorites.controller",[])
 
-.controller("favoritesController", function($scope, $rootScope, $http, $auth){
+.controller("favoritesController", ['$scope', '$http', function($scope, $http){
 
   $scope.getFavorites = function() {
     // $auth.validateUser();
-    console.log($rootScope.user.id);
-    $http.get("http://localhost:3000/api/users/" + $rootScope.user.id + "/favorite_recipes")
+    $http.get("http://localhost:3000/api/favorite_recipes")
     .success(function(data){
       // alert("SUCCESS!");
       // debugger
@@ -19,8 +18,7 @@ angular.module("favorites.controller",[])
 
   $scope.deleteFavorite = function(recipe) {
     console.log($scope.recipe);
-    debugger
-    $http.delete("http://localhost:3000/api/users/" + $rootScope.user.id + "/favorite_recipes/" + recipe.body.id)
+    $http.delete("http://localhost:3000/api/favorite_recipes/" + recipe.body.id)
     .success(function(data){
       // alert("SUCCESS!");
       // debugger
@@ -32,4 +30,4 @@ angular.module("favorites.controller",[])
     })
   }
 
-})
+}])
