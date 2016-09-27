@@ -117,7 +117,13 @@ angular.module("pantry.controller",[])
     }
     $scope.data.showDelete = false;
     $scope.selectToggle = "Select";
-    $scope.getList();
-  })
+  });
+
+  // Watch to see if we leave the page.
+  // If so stop before leaving the page and save to the database.
+  // $scope.$on('$ionicView.beforeLeave', function() {
+  //   console.log("LEAVING THE PANTRY");
+  //   debugger
+  // });
 
 }])
