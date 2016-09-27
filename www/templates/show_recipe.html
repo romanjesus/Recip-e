@@ -1,24 +1,35 @@
-<ion-view>
+<ion-view view-title="">
 	<ion-content>
 		<div class="list card">
 		  <div class="item item-avatar">
 		    <img src="{{recipe.image}}">
-		    <h2>{{recipe.title}}</h2>
+		    <h2 class="recipe-header">{{recipe.title}}</h2>
 		    <p>Place Holder</p>
 		  </div>
 		  <div class="item item-image">
 		    <img src="{{recipe.image}}">
 		  </div>
-		  <a class="center item item-icon-left item-icon-right assertive" href="#/app/recipes/{{recipe.id}}/instructions">
+		  <a class="center item item-icon-left item-icon-right assertive" href="#/app/recipes/{{recipe.id}}/instructions" ng-click="getInstructions()">
 		    <i class="icon ion-fork"></i>
 		    		    Get Detailed Instructions
 		    <i class="icon ion-knife"></i>
 		  </a>
 		  <div class="item item-body">
+    		<p class="center">
+	    		Ready in: {{recipe.readyInMinutes}} minutes <br>
+	    		Servings: {{recipe.servings}}<br><br>
+    		</p>
     		<p>
-    		Ready in: {{recipe.readyInMinutes}} minutes <br>
-    		Servings: {{recipe.servings}}<br><br>
-
+    			<div class="center ingredient-header"> Ingredients </div>
+    			<br>
+	    		<ul>
+	    			<li class="center text-size" ng-repeat="ingredient in recipe.extendedIngredients">
+						{{ingredient.amount}} {{ingredient.unitLong}} {{ingredient.name}}
+	    			</li>
+	    		</ul>
+	    		<br>
+	    	</p>
+	    	<p>
     		Basic Instructions: <span ng-bind-html="recipe.instructions"></span>
     		</p>
     	</div>
