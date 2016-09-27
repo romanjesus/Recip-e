@@ -26,3 +26,7 @@ h1.recipe-header{
 .item.wrap, .item-content.wrap {
 white-space: normal;
 }
+
+body {
+	background-color: grey;
+}

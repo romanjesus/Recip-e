@@ -1,31 +1,41 @@
-<ion-view>
+<ion-view view-title="">
   <ion-content>
     <div class="alert alert-danger" role="alert" ng-show="error">
       {{error}}
     </div>
+    <h2 class="center"> Log In! </h2>
+    <div class="list list-inset">
 
-    <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email"
-               name="email"
-               id="email"
-               ng-model="loginForm.email"
-               required="required"
-               class="form-control">
-      </div>
+      <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+        <div class="form-group">
+          <label class="item item-input item-floating-label" for="email">
+            <span class="input-label">Email</span>
+            <input type="email" placeholder="Email" 
+                   name="email"
+                   id="email"
+                   ng-model="loginForm.email"
+                   required="required"
+                   class="form-control">
+          </label>
+        </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password"
-               name="password"
-               id="password"
-               ng-model="loginForm.password"
-               required="required"
-               class="form-control">
-      </div>
+        <div class="form-group">
+          <label class="item item-input item-floating-label" for="password">
+            <span class="input-label">Password</span>
+            <input type="password" placeholder="Password" 
+                   name="password"
+                   id="password"
+                   ng-model="loginForm.password"
+                   required="required"
+                   class="form-control">
+          </label>
+        </div>
+        <br>
+        <div class="center">
+          <button type="submit" class=" button button-block button-energized">Sign in</button>
+        </div>
 
-      <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
-    </form>
+      </form>
+    </div>
   </ion-content>
 </ion-view>
