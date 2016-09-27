@@ -4,7 +4,7 @@ angular.module("favorites.controller",[])
 
   $scope.getFavorites = function() {
     // $auth.validateUser();
-    $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
+    $http.get("http://localhost:3000/api/favorite_recipes")
     .success(function(data){
       // alert("SUCCESS!");
       // debugger
@@ -18,7 +18,7 @@ angular.module("favorites.controller",[])
 
   $scope.deleteFavorite = function(recipe) {
     console.log($scope.recipe);
-    $http.delete("https://recip-e.herokuapp.com/api/favorite_recipes/" + recipe.body.id)
+    $http.delete("http://localhost:3000/api/favorite_recipes/" + recipe.body.id)
     .success(function(data){
       // alert("SUCCESS!");
       // debugger
