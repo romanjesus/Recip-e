@@ -3,7 +3,6 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
-
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -19,21 +18,36 @@
     <ion-content>
       <ion-list>
         <ion-item ng-show="user.id" menu-close href="#/app/pantry">
+          <i class="icon-left ion-pizza"></i> 
           My Pantry
         </ion-item>
         <ion-item ng-show="user.id" menu-close href="#/app/favorites/{{user.id}}">
+          <i class="icon-left ion-ios-heart"></i> 
           My Favorite Recipes
         </ion-item>
         <ion-item ng-show="!user.id" menu-close href="#/app/sign_in">
+          <i class="icon-left ion-log-in"></i> 
           Sign In
         </ion-item>
         <ion-item ng-show="user.id" menu-close ng-click="signOut()">
+          <i class="icon-left ion-log-out"></i> 
           Sign Out
         </ion-item>
         <ion-item ng-show="!user.id" menu-close href="#/app/register">
+          <i class="icon-left ion-ios-personadd"></i> 
           Register
         </ion-item>
       </ion-list>
+
     </ion-content>
+
+     <ion-footer-bar class="bar-stable foot-height">
+
+        <div class="center" style="left:0;right:0;margin:0;top:2000; width: 100%;position: fixed;">
+          <img src="http://i.imgur.com/Rf2Wg1O.png">
+        </div>
+
+    </ion-footer-bar>
+
   </ion-side-menu>
 </ion-side-menus>

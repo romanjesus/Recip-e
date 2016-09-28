@@ -1,9 +1,8 @@
-<ion-view view-title="">
+<ion-view view-title="Log In">
   <ion-content>
     <div class="alert alert-danger" role="alert" ng-show="error">
       {{error}}
     </div>
-    <h2 class="center"> Log In! </h2>
     <div class="list list-inset">
 
       <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
@@ -32,7 +31,7 @@
         </div>
         <br>
         <div class="center">
-          <button type="submit" class=" button button-block button-energized">Sign in</button>
+          <button type="submit" class="button button-large button-energized">Sign in</button>
         </div>
 
       </form>
