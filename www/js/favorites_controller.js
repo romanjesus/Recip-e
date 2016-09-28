@@ -20,4 +20,8 @@ angular.module("favorites.controller",[])
     })
   }
 
+  $scope().$on('auth-login-success') {
+    favorites.updateFavorites();
+  }
+
 }])

@@ -17,6 +17,10 @@ angular.module("services", [])
     this.favorites = httpGetFavs($ctrlScope);
   }
 
+  var initializeFavorites = function() {
+    this.favorites = httpInitGetFavs();
+  }
+
   // PRIVATE METHOD
 
   var httpGetFavs = function ($ctrlScope) {
@@ -27,5 +31,12 @@ angular.module("services", [])
       });
   }
 
-  return { favorites: this.favorites, updateFavorites: updateFavorites };
+  var httpInitGetFavs = function() {
+    $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
+      .success(function(data) {
+        return data;
+      });
+  }
+
+  return { favorites: this.favorites, updateFavorites: updateFavorites, initializeFavorites: initializeFavorites };
 }])
