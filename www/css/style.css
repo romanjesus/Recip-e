@@ -28,5 +28,9 @@ white-space: normal;
 }
 
 body {
-	background-color: grey;
+	background-color: #e6e6e6;
+}
+
+.pane {
+    background-color:   #e6e6e6;
 }
