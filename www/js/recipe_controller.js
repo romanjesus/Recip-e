@@ -1,6 +1,6 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'returnedRecipes','listOfIngredients',function($scope, $http, $rootScope, $stateParams, returnedRecipes, listOfIngredients) {
+.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'returnedRecipes',function($scope, $http, $rootScope, $stateParams, returnedRecipes) {
 
 	$scope.$on('$ionicView.enter', function() {
     console.log("Recipe view entered");
