@@ -7,6 +7,7 @@ angular.module("recipe.controller",[])
     getRecipeOnLoad();
 	})
 
+
 	$scope.findRecipes = function() {
 		// console.log($scope.items);
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
@@ -20,6 +21,7 @@ angular.module("recipe.controller",[])
     })
 	}
 
+
 	$scope.getRecipe = function(id) {
 		var recipe_id = { "id": id }
 		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
@@ -29,6 +31,7 @@ angular.module("recipe.controller",[])
 		})
 	}
 
+
 	$scope.getInstructions = function(){
 		var new_id = { "id": $stateParams.recipeId }
 		$http.post("https://recip-e.herokuapp.com/api/instructions", angular.toJson(new_id))
@@ -36,6 +39,7 @@ angular.module("recipe.controller",[])
 			$rootScope.instructions = response.data.body[0].steps
 		})
 	}
+
 
 	$scope.speakText = function(text) {
     window.TTS.speak({
@@ -49,6 +53,19 @@ angular.module("recipe.controller",[])
         alert(reason+"");
        });
   };
+
+
+  $scope.addFavorite = function(recipe) {
+    console.log($scope.recipe.id);
+    $http.post("https://recip-e.herokuapp.com/api/favorite_recipes/" + recipe.id)
+    .success(function(data){
+      // alert("SUCCESS!");
+      console.log(data);
+    })
+    .error(function(data) {
+      alert("ERROR IN ADDING NEW FAVORITE");
+    })
+  }
 
   // 'PRIVATE' METHODS
 
