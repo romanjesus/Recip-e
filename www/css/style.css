@@ -30,7 +30,7 @@ h1.recipe-header{
 }
 
 .item.wrap, .item-content.wrap {
-white-space: normal;
+	white-space: normal;
 }
 
 .pane {
@@ -79,7 +79,7 @@ div.item-content{
   padding-bottom:0px !important;
 }
 
-.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
+.ingredient-list.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
 	border-color: white;
 	background-color: white;
 }
