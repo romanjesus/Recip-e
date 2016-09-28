@@ -17,7 +17,7 @@ angular.module("services", [])
     });
   }
 
-  var getFavorites = function() {
+  var updateFavorites = function() {
     this.favorites = httpGetFavs();
   }
 
@@ -30,5 +30,5 @@ angular.module("services", [])
       });
   }
 
-  return { favorites: this.favorites, initializeFavorites: initializeFavorites, getFavorites: getFavorites };
+  return { favorites: this.favorites, initializeFavorites: initializeFavorites, updateFavorites: updateFavorites };
 }])
