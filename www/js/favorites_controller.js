@@ -1,6 +1,6 @@
 angular.module("favorites.controller",[])
 
-.controller("favoritesController", ['$scope', '$http', 'favorites', function($scope, $http, favorites){
+.controller("favoritesController", ['$scope', '$http', 'favorites', '$rootScope', function($scope, $http, favorites, $rootScope){
 
   $scope.getFavorites = function() {
     favorites.updateFavorites($scope);
@@ -18,10 +18,6 @@ angular.module("favorites.controller",[])
     .error(function(data) {
       alert("ERROR");
     })
-  }
-
-  $scope().$on('auth-login-success') {
-    favorites.updateFavorites();
   }
 
 }])

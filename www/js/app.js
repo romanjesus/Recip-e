@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
       StatusBar.styleDefault();
     }
   });
+
 })
 
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {

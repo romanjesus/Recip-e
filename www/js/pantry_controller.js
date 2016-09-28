@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', 'favorites', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes, favorites){
 
   var myItems = $scope.items;
 
@@ -118,7 +118,9 @@ angular.module("pantry.controller",[])
     }
     $scope.data.showDelete = false;
     $scope.selectToggle = "Select";
+    favorites.initializeFavorites();
   });
+
 
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
