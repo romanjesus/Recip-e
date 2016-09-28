@@ -34,7 +34,6 @@ angular.module("recipe.controller",[])
 		$http.post("https://recip-e.herokuapp.com/api/instructions", angular.toJson(new_id))
 		.then(function(response){
 			$rootScope.instructions = response.data.body[0].steps
-			console.log($rootScope.instructions)
 		})
 	}
 
@@ -51,6 +50,7 @@ angular.module("recipe.controller",[])
        });
   };
 
+  // 'PRIVATE' METHODS
 
 	var cleanList = function(items) {
 		var array = [];
