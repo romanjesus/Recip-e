@@ -91,8 +91,7 @@ angular.module("pantry.controller",[])
     .then(function(response){
       console.log(response.data[0]);
       $scope.items = response.data;
-      listOfIngredients.getIngredients(response.data);
-      debugger
+      listOfIngredients.setIngredients(response.data);
       return response
     })
   };
