@@ -11,24 +11,21 @@ angular.module("services", [])
 }])
 
 .factory("favorites", ['$http', function($http) {
-  var initializeFavorites = function() {
-    if(!this.favorites) {
-      this.favorites = httpGetFavs();
-    });
-  }
+  this.favorites;
 
-  var updateFavorites = function() {
-    this.favorites = httpGetFavs();
+  var updateFavorites = function($ctrlScope) {
+    this.favorites = httpGetFavs($ctrlScope);
   }
 
   // PRIVATE METHOD
 
-  var httpGetFavs = function () {
+  var httpGetFavs = function ($ctrlScope) {
     $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
-      .success(function(data){
+      .success(function(data) {
+        $ctrlScope.favorite_recipes = data;
         return data;
       });
   }
 
-  return { favorites: this.favorites, initializeFavorites: initializeFavorites, updateFavorites: updateFavorites };
+  return { favorites: this.favorites, updateFavorites: updateFavorites };
 }])

@@ -1,19 +1,9 @@
 angular.module("favorites.controller",[])
 
-.controller("favoritesController", ['$scope', '$http', function($scope, $http){
+.controller("favoritesController", ['$scope', '$http', 'favorites', function($scope, $http, favorites){
 
   $scope.getFavorites = function() {
-    // $auth.validateUser();
-    $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
-    .success(function(data){
-      // alert("SUCCESS!");
-      // debugger
-      console.log(data);
-      $scope.favorite_recipes = data;
-    })
-    .error(function(data) {
-      alert("ERROR");
-    });
+    favorites.updateFavorites($scope);
   }
 
   $scope.deleteFavorite = function(recipe) {
