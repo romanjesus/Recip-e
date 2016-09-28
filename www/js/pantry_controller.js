@@ -78,19 +78,19 @@ angular.module("pantry.controller",[])
   $scope.getCategory = function(input) {
      if (input == 1) {
       input = 'Dairy'
-     } else if ($scope.items[i].category_id == 2) {
+     } else if (input == 2) {
       input = 'Produce'
      }
-     else if ($scope.items[i].category_id == 3) {
+     else if (input == 3) {
       input = 'Beverages'
      }
-     else if ($scope.items[i].category_id == 4) {
+     else if (input == 4) {
       input = 'Meat'
      }
-     else if ($scope.items[i].category_id == 5) {
+     else if (input == 5) {
       input = 'Bakery'
      }
-     else if ($scope.items[i].category_id == 6) {
+     else if (input == 6) {
       input = 'Pantry'
      }
      else  {
@@ -102,10 +102,11 @@ angular.module("pantry.controller",[])
     var item = item[0].toUpperCase() + item.slice(1)
     console.log(item)
     console.log(category)
+    var cat_id = category
     console.log($scope.getCategory(category))
     var categoryText = $scope.getCategory(category)
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push({name: item, category: categoryText});
+    	$scope.items.push({name: item, category: categoryText, category_id: cat_id});
 		}
 	};
 
@@ -120,7 +121,6 @@ angular.module("pantry.controller",[])
     .then(function(response){
       $scope.items = response.data;
       console.log($scope.items[0]);
-
 
       for(var i = 0; i < $scope.items.length; i ++) {
          if ($scope.items[i].category_id == 1) {
