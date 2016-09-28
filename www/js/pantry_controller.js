@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes, listOfIngredients){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes){
 
   var myItems = $scope.items;
 
@@ -91,7 +91,6 @@ angular.module("pantry.controller",[])
     .then(function(response){
       console.log(response.data[0]);
       $scope.items = response.data;
-      listOfIngredients.setIngredients(response.data);
       return response
     })
   };
@@ -124,9 +123,8 @@ angular.module("pantry.controller",[])
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
   $scope.$on('$ionicView.leave', function() {
-    console.log("LEAVING");
+    // console.log("LEAVING");
     $scope.saveList();
-    debugger
   });
 
 }])
