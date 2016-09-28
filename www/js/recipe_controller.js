@@ -28,7 +28,7 @@ angular.module("recipe.controller",[])
 		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
-			console.log($rootScope.recipe)
+			console.log($rootScope.recipe);
 		})
 	}
 
@@ -68,10 +68,6 @@ angular.module("recipe.controller",[])
     })
   }
 
-  $scope.favoriteContains = function(recipe) {
-
-  }
-
 
   $scope.deleteFavorite = function(recipe) {
     console.log($scope.recipe);
@@ -100,10 +96,10 @@ angular.module("recipe.controller",[])
 
 	var getRecipeOnLoad = function() {
 		var recipe_id = { "id": $stateParams.recipeId }
-		$http.post("https://recip-e.herokuapp.com/api/recipe", angular.toJson(recipe_id))
+		$http.post("https://localhost:3000/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
-			console.log($rootScope.recipe)
+			console.log(response);
 		})
 	}
 
