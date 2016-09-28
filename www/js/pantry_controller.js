@@ -62,10 +62,12 @@ angular.module("pantry.controller",[])
 
 
   $scope.submitItemForm = function() {
-    var input = this.item;
-    console.log('Adding Item', input);
-    if(input.length > 0){
-    	$scope.addItem(input);
+    var category_id = angular.element(document).find('select').val();
+    var item = this.item;
+    console.log('Adding Item', item);
+    console.log('Adding Cat ', category_id);
+    if(item.length > 0){
+    	$scope.addItem(item, category_id);
   	}
     $timeout(function() {
       $scope.closeItemForm();
@@ -73,24 +75,77 @@ angular.module("pantry.controller",[])
     this.item = "";
   };
 
-
-  $scope.addItem = function (item) {
+  $scope.getCategory = function(input) {
+     if (input == 1) {
+      input = 'Dairy'
+     } else if ($scope.items[i].category_id == 2) {
+      input = 'Produce'
+     }
+     else if ($scope.items[i].category_id == 3) {
+      input = 'Beverages'
+     }
+     else if ($scope.items[i].category_id == 4) {
+      input = 'Meat'
+     }
+     else if ($scope.items[i].category_id == 5) {
+      input = 'Bakery'
+     }
+     else if ($scope.items[i].category_id == 6) {
+      input = 'Pantry'
+     }
+     else  {
+      input = 'Frozen'
+     }
+     return input
+  }
+  $scope.addItem = function (item, category) {
+    var item = item[0].toUpperCase() + item.slice(1)
+    console.log(item)
+    console.log(category)
+    console.log($scope.getCategory(category))
+    var categoryText = $scope.getCategory(category)
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push({name: item});
+    	$scope.items.push({name: item, category: categoryText});
 		}
 	};
-
 
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
 	};
 
 
+
   $scope.getList = function() {
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
-      console.log(response.data[0]);
       $scope.items = response.data;
+      console.log($scope.items[0]);
+
+
+      for(var i = 0; i < $scope.items.length; i ++) {
+         if ($scope.items[i].category_id == 1) {
+          $scope.items[i].category_id = 'Dairy'
+         } else if ($scope.items[i].category_id == 2) {
+          $scope.items[i].category_id = 'Produce'
+         }
+         else if ($scope.items[i].category_id == 3) {
+          $scope.items[i].category_id = 'Beverages'
+         }
+         else if ($scope.items[i].category_id == 4) {
+          $scope.items[i].category_id = 'Meat'
+         }
+         else if ($scope.items[i].category_id == 5) {
+          $scope.items[i].category_id = 'Bakery'
+         }
+         else if ($scope.items[i].category_id == 6) {
+          $scope.items[i].category_id = 'Pantry'
+         }
+         else  {
+          $scope.items[i].category_id = 'Frozen'
+         }
+       }
+
+      console.log($scope.items[0]);
       return response
     })
   };

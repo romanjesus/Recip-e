@@ -12,8 +12,31 @@
           <span class="input-label">Ingredient</span>
           <input type="text" name="item" ng-model="item">
         </label>
+           <ion-list>
+        <label class="item item-input item-select">
+           <div class="input-label">
+              Category
+           </div>
+           <select class="cat-value">
+              <option name="category" ng-model="category" ng-value="'1'" selected>Dairy</option>
+              <option name="category" ng-model="category" ng-value="'2'">Produce</option>
+              <option name="category" ng-model="category" ng-value="'3'">Beverages</option>
+              <option name="category" ng-model="category" ng-value="'4'">Meat</option>
+              <option name="category" ng-model="category" ng-value="'5'">Bakery</option>
+              <option name="category" ng-model="category" ng-value="'6'">Pantry</option>
+              <option name="category" ng-model="category" ng-value="'7'">Frozen</option>
+           </select>
+        </label>
+
+
+        <!--**** For radio buttons *****-->
+       <!--  <ion-list>
+          <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
+          <ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
+        </ion-list> -->
+
         <label class="item">
-          <button class="button button-block button-positive" type="submit"">Add Item</button>
+          <button class="button button-block button-positive" type="submit">Add Item</button>
         </label>
       </div>
     </form>
