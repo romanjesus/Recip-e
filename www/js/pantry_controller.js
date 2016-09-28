@@ -100,13 +100,15 @@ angular.module("pantry.controller",[])
   }
   $scope.addItem = function (item, category) {
     var item = item[0].toUpperCase() + item.slice(1)
+    var cat_id = category
+    var categoryText = $scope.getCategory(category)
+
     console.log(item)
     console.log(category)
-    var cat_id = category
+
     console.log($scope.getCategory(category))
-    var categoryText = $scope.getCategory(category)
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push({name: item, category: categoryText, category_id: cat_id});
+    	$scope.items.push({name: item, category: categoryText, category_id: categoryText});
 		}
 	};
 
@@ -152,6 +154,28 @@ angular.module("pantry.controller",[])
 
 
   $scope.saveList = function() {
+    for(var i = 0; i < $scope.items.length; i ++) {
+         if ($scope.items[i].category_id === "Dairy") {
+          $scope.items[i].category_id = 1
+         } else if ($scope.items[i].category_id === "Produce") {
+          $scope.items[i].category_id = 2
+         }
+         else if ($scope.items[i].category_id === 'Beverages') {
+          $scope.items[i].category_id = 3
+         }
+         else if ($scope.items[i].category_id === 'Meat') {
+          $scope.items[i].category_id = 4
+         }
+         else if ($scope.items[i].category_id === 'Bakery') {
+          $scope.items[i].category_id = 5
+         }
+         else if ($scope.items[i].category_id === 'Pantry') {
+          $scope.items[i].category_id = 6
+         }
+         else  {
+          $scope.items[i].category_id = 'Frozen'
+         }
+       }
     console.log("Sent save request!");
     console.log($scope.items);
     var postData = {"ingredients": $scope.items}

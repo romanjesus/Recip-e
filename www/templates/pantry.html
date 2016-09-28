@@ -10,7 +10,7 @@
     <ion-item ng-repeat="item in items">
       <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)">
 
-        <p><strong>{{item.name}}</strong> <br> {{item.category}} {{item['category_id']}}</p>
+        <p><strong>{{item.name}}</strong> <br> {{ item['category_id']}}</p>
       </ion-checkbox>
      <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
     </ion-item>
