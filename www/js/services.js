@@ -1,6 +1,6 @@
 angular.module("services", [])
 
-.factory("checkedIngredients", [function() {
+.factory("returnedRecipes", [function() {
   this.returnedRecipes;
 
   var setReturned = function(obj) {

@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'checkedIngredients', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $state, checkedIngredients, listOfIngredients){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes, listOfIngredients){
 
   var myItems = $scope.items;
 
