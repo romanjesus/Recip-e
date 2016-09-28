@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'checkedIngredients', 'listOfIngredients', function($scope, $ionicModal, $timeout, $http, $state, checkedIngredients, listOfIngredients){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes){
 
   var myItems = $scope.items;
 
@@ -185,8 +185,9 @@ angular.module("pantry.controller",[])
     })
   }
 
+
   // Watch to see if we return to the page.
-  $scope.$on('$ionicView.enter', function() {
+  $scope.$on('$ionicView.enter', function(view) {
     console.log("Pantry view entered");
     // If we do then set all the checkboxes to false.
     // *** Needed to overwrite on a back.
@@ -200,9 +201,9 @@ angular.module("pantry.controller",[])
 
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
-  // $scope.$on('$ionicView.beforeLeave', function() {
-  //   console.log("LEAVING THE PANTRY");
-  //   debugger
-  // });
+  $scope.$on('$ionicView.leave', function() {
+    // console.log("LEAVING");
+    $scope.saveList();
+  });
 
 }])

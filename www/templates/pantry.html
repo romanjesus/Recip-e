@@ -1,26 +1,31 @@
-<ion-view view-title="Pantry" >
+<ion-view view-title="Pantry">
   <ion-nav-buttons side="right">
-    <button class="button button-clear" menu-close ng-click="selectAllChecks()"><i class="ion-checkmark-round"> </i>{{selectToggle}} All</button>
     <button class="button button-clear button-positive" menu-close ng-click="openItemForm()"><i class="ion-plus-circled"> </i>Add</button>
     <button class="button button-clear button-assertive" ng-click="data.showDelete = !data.showDelete"><i class="ion-minus-circled"> </i>Delete</button>
   </ion-nav-buttons>
 
 <ion-content class="has-footer">
-  <ion-list ng-init="getList()"show-delete="data.showDelete">
-    <ion-item ng-repeat="item in items">
-      <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)">
 
-        <p><strong>{{item.name}}</strong> <br> {{ item['category_id']}}</p>
-      </ion-checkbox>
-     <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
-    </ion-item>
+  <ion-list ng-init="getList()" show-delete="data.showDelete">
+      <ion-item ng-repeat="item in items">
+        <p class="center">
+          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)"><p><strong>{{item.name}}</strong> <br> {{ item['category_id']}}</p></ion-checkbox>
+          <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+        </ion-item>
+      </p>
+
   </ion-list>
 </ion-content>
 
   <ion-footer-bar class="bar bar-dark" ng-controller="recipeController">
-	<div class="button-bar" ng-click="findRecipes()">
-		<a class="button icon-left ion-search" ng-click="saveList()" href='#/app/recipes'>Find Recipes</a>
-  </div>
-</ion-footer-bar>
 
+  	<div class="button-bar" ng-click="findRecipes()">
+  		<a class="button icon-left ion-search" ng-click="saveList()" href='#/app/recipes'>Find Recipes</a>
+    </div>
+
+    <div class="button-bar" ng-click="selectAllChecks()">
+      <a class="button icon-right ion-checkmark-round">{{selectToggle}} All</a>
+    </div>
+
+  </ion-footer-bar>
 </ion-view>

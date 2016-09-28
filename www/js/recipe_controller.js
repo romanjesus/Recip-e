@@ -1,14 +1,10 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', function($scope, $http, $rootScope, $stateParams){
-
-	$rootScope.recipes = []
-	$rootScope.instructions = []
-	$rootScope.recipe = {}
+.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'returnedRecipes',function($scope, $http, $rootScope, $stateParams, returnedRecipes) {
 
 	$scope.$on('$ionicView.enter', function() {
-	    console.log("Recipe view entered");
-	    getRecipeOnLoad();
+    console.log("Recipe view entered");
+    getRecipeOnLoad();
 	})
 
 	$scope.findRecipes = function() {
@@ -20,6 +16,7 @@ angular.module("recipe.controller",[])
 		.then(function(response){
       console.log(response);
       $rootScope.recipes = (response.data.body);
+      returnedRecipes.setReturned(response.data.body);
     })
 	}
 
