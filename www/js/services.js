@@ -9,5 +9,3 @@ angular.module("services", [])
 
   return { returnedRecipes: this.returnedRecipes, setReturned: setReturned };
 }])
-
-
