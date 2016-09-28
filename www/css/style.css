@@ -1,11 +1,17 @@
 /* Empty. Add your own CSS if you like */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 h2.recipe-list{
 	white-space: normal;
 	height: 2.4em;
 }
 
 .center{
-     text-align:center;
+  text-align:center;
 }
 
 .text-size {
@@ -27,14 +33,60 @@ h1.recipe-header{
 white-space: normal;
 }
 
-body {
-	background-color: #e6e6e6;
-}
-
 .pane {
-    background-color:   #e6e6e6;
+  background-color: #b11f2c;
 }
 
 .foot-height{
-height: 177px !important;
+	height: 177px !important;
 }
+
+.card-wrapper {
+  height: 100%;
+  padding: 20px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.custom-card.card {
+  height: 100%;
+  margin: 0;
+}
+
+.scroll-view {
+  height: 100%;
+}
+
+.ion-delete-button{
+	margin-right: -40px;
+	margin-top: -40px;
+}
+
+.pantry1 {
+	padding-right: 5px;
+}
+.pantry2 {
+	padding-left: 5px;
+}
+
+.pantry {
+	background-color: #2b2b2b !important;
+}
+
+div.item-content{
+  padding-top:0px !important;
+  padding-bottom:0px !important;
+}
+
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
+	border-color: white;
+	background-color: white;
+}
+
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+  background: #da2939 !important; 
+  border-color: white !important;
+}
+
+
