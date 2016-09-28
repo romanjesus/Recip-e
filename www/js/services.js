@@ -11,7 +11,6 @@ angular.module("services", [])
 }])
 
 .factory("favorites", ['$http', function($http) {
-  this.favorites;
 
   var updateFavorites = function($ctrlScope) {
     this.favorites = httpGetFavs($ctrlScope);

@@ -1,10 +1,11 @@
 angular.module("recipe.controller",[])
 
-.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'returnedRecipes',function($scope, $http, $rootScope, $stateParams, returnedRecipes) {
+.controller("recipeController", ['$scope', '$http', '$rootScope', '$stateParams', 'returnedRecipes', 'favorites', function($scope, $http, $rootScope, $stateParams, returnedRecipes, favorites) {
 
 	$scope.$on('$ionicView.enter', function() {
     console.log("Recipe view entered");
     getRecipeOnLoad();
+    favorites.updateFavorites($scope);
 	})
 
 
@@ -64,6 +65,26 @@ angular.module("recipe.controller",[])
     })
     .error(function(data) {
       alert("ERROR IN ADDING NEW FAVORITE");
+    })
+  }
+
+  $scope.favoriteContains = function(recipe) {
+
+  }
+
+
+  $scope.deleteFavorite = function(recipe) {
+    console.log($scope.recipe);
+    debugger
+    $http.delete("https://recip-e.herokuapp.com/api/favorite_recipes/" + recipe.id)
+    .success(function(data){
+      // alert("SUCCESS!");
+      // debugger
+      console.log(data);
+      $scope.favorite_recipes = data;
+    })
+    .error(function(data) {
+      alert("ERROR");
     })
   }
 

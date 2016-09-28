@@ -8,6 +8,7 @@ angular.module("favorites.controller",[])
 
   $scope.deleteFavorite = function(recipe) {
     console.log($scope.recipe);
+    debugger
     $http.delete("https://recip-e.herokuapp.com/api/favorite_recipes/" + recipe.body.id)
     .success(function(data){
       // alert("SUCCESS!");
