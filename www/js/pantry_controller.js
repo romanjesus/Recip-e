@@ -78,13 +78,11 @@ angular.module("pantry.controller",[])
   	if ($scope.items.indexOf(item) == -1) {
     	$scope.items.push({name: item});
 		}
-    debugger
 	};
 
 
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
-    debugger
 	};
 
 
@@ -93,6 +91,7 @@ angular.module("pantry.controller",[])
     .then(function(response){
       console.log(response.data[0]);
       $scope.items = response.data;
+      listOfIngredients.setIngredients(response.data);
       return response
     })
   };
@@ -124,8 +123,9 @@ angular.module("pantry.controller",[])
 
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
-  $scope.$on('$ionicView.afterLeave', function() {
+  $scope.$on('$ionicView.leave', function() {
     console.log("LEAVING");
+    $scope.saveList();
     debugger
   });
 
