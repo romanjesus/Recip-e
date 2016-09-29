@@ -92,11 +92,7 @@ angular.module("pantry.controller",[])
   $scope.getList = function() {
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
-<<<<<<< HEAD
-      console.log(response)
-      console.log(response.data[0]);
-=======
->>>>>>> 998bc5ec650005c626dba5a74da340c67683b681
+
       $scope.items = response.data;
 
 
