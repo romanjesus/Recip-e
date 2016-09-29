@@ -7,11 +7,14 @@
 <ion-content class="has-footer">
   <div class="card ingredient-list">
   <ion-list ng-init="getList()" show-delete="data.showDelete">
-      <ion-item ng-repeat="item in items">
-        <p class="center">
-          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)"><span><strong>{{item.name}}</strong> <br> {{ item.category_id }}</span></ion-checkbox>
-          <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
-        </p>
+      <ion-item ng-repeat="category in itemsByCategory">
+        <h3 class="center">{{ category[0].category_id }}</h3>
+        <ion-item ng-repeat="item in category">
+          <p class="center">
+            <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)"><span><strong>{{item.name}}</strong> <br> </span></ion-checkbox>
+            <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+          </p>
+        </ion-item>
       </ion-item>
   </ion-list>
   </div>
