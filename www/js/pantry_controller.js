@@ -92,7 +92,7 @@ angular.module("pantry.controller",[])
   };
 
   $scope.getList = function() {
-    $http.get("http://localhost:3000/api/pantry")
+    $http.get("https://recip-e.heroku-app.com/api/pantry")
     .then(function(response){
 
       $scope.items = response.data;
@@ -146,7 +146,7 @@ angular.module("pantry.controller",[])
     }
     var postData = {"ingredients": $scope.items}
 
-    $http.post("http://localhost:3000/api/pantry", angular.toJson(postData))
+    $http.post("https://recip-e.heroku-app.com/api/pantry", angular.toJson(postData))
     .then(function(response) {
       // response
     })

@@ -10,7 +10,7 @@ angular.module("recipe.controller",[])
 
 	$scope.findRecipes = function() {
 		var post = { "ingredients": cleanList(takeCheckedBoxes($scope.items)) };
-		$http.post("http://localhost:3000/api/ingredients", angular.toJson(post))
+		$http.post("https://recip-e.heroku-app.com/api/ingredients", angular.toJson(post))
 		.then(function(response){
       $rootScope.recipes = (response.data.body);
       returnedRecipes.setReturned(response.data.body);
@@ -21,7 +21,7 @@ angular.module("recipe.controller",[])
 	$scope.getRecipe = function(id) {
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 		var recipe_id = { "id": id }
-		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
+		$http.post("https://recip-e.heroku-app.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body;
       $scope.favorited = response.data.headers.favorited;
@@ -31,7 +31,7 @@ angular.module("recipe.controller",[])
 
 	$scope.getInstructions = function(){
 		var new_id = { "id": $stateParams.recipeId }
-		$http.post("http://localhost:3000/api/instructions", angular.toJson(new_id))
+		$http.post("https://recip-e.heroku-app.com/api/instructions", angular.toJson(new_id))
 		.then(function(response){
 			$rootScope.instructions = response.data.body[0].steps
 		})
@@ -53,7 +53,7 @@ angular.module("recipe.controller",[])
 
 
   $scope.addFavorite = function(recipe) {
-    $http.post("http://localhost:3000/api/favorite_recipes/" + recipe.id)
+    $http.post("https://recip-e.heroku-app.com/api/favorite_recipes/" + recipe.id)
     .success(function(data){
       // alert("SUCCESS!");
     })
@@ -64,7 +64,7 @@ angular.module("recipe.controller",[])
 
 
   $scope.deleteFavorite = function(recipe) {
-    $http.delete("http://localhost:3000/api/favorite_recipes/" + recipe.id)
+    $http.delete("https://recip-e.heroku-app.com/api/favorite_recipes/" + recipe.id)
     .success(function(data){
       // alert("SUCCESS!");
       // debugger
@@ -98,7 +98,7 @@ angular.module("recipe.controller",[])
 
 	var getRecipeOnLoad = function() {
 		var recipe_id = { "id": $stateParams.recipeId }
-		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
+		$http.post("https://recip-e.heroku-app.com/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
       if (response.data.headers) {
