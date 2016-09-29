@@ -3,11 +3,13 @@
 		<div class="list card">
 		  <div class="center">
 		    <h1 class="recipe-header">{{recipe.title}}</h1>
-  		    <p class="button fav-button " ng-click="favoriteRouter(recipe)">
-  		    	<i class="icon-left ion-heart fav-icon" ng-class="{favorited: favorited}"></i>
-  		    	<span class="center"></span>
-  		    </p>
 		  </div>
+      <div class="center">
+        <p class="button fav-button center" ng-click="favoriteRouter(recipe)">
+          <i class="icon-left ion-heart fav-icon" ng-class="{favorited: favorited}"></i>
+          <span class="center"></span>
+        </p>
+      </div>
 		  <div class="item item-image">
 		    <img ng-src="{{recipe.image}}">
 		  </div>
