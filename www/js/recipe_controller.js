@@ -83,6 +83,16 @@ angular.module("recipe.controller",[])
   }
 
 
+  $scope.favoriteRouter = function(recipe) {
+    if (!$scope.favorited) {
+      $scope.addFavorite(recipe);
+      $scope.favorited = true;
+    } else {
+      $scope.deleteFavorite(recipe);
+      $scope.favorited = false;
+    }
+  }
+
   // 'PRIVATE' METHODS
 
 	var cleanList = function(items) {
