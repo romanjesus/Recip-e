@@ -62,10 +62,12 @@ angular.module("pantry.controller",[])
 
 
   $scope.submitItemForm = function() {
-    var input = this.item;
-    console.log('Adding Item', input);
-    if(input.length > 0){
-    	$scope.addItem(input);
+    var category = angular.element(document).find('select').val();
+    var item = this.item;
+    console.log('Adding Item:', item);
+    console.log('Adding Category:', category);
+    if(item.length > 0){
+    	$scope.addItem(item, category);
   	}
     $timeout(function() {
       $scope.closeItemForm();
@@ -73,34 +75,93 @@ angular.module("pantry.controller",[])
     this.item = "";
   };
 
+  $scope.addItem = function (item, category) {
+    var item = item[0].toUpperCase() + item.slice(1)
 
-  $scope.addItem = function (item) {
+    console.log(item)
+
   	if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push({name: item});
+    	$scope.items.push({name: item, category_id: category});
 		}
 	};
-
 
 	$scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
 	};
 
-
   $scope.getList = function() {
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
+<<<<<<< HEAD
       console.log(response)
       console.log(response.data[0]);
+=======
+>>>>>>> 998bc5ec650005c626dba5a74da340c67683b681
       $scope.items = response.data;
+
+
+      for(var i = 0; i < $scope.items.length; i ++) {
+         if ($scope.items[i].category_id == '1') {
+          $scope.items[i].category_id = 'Dairy'
+         } else if ($scope.items[i].category_id == '2') {
+          $scope.items[i].category_id = 'Produce'
+         }
+         else if ($scope.items[i].category_id == '3') {
+          $scope.items[i].category_id = 'Beverages'
+         }
+         else if ($scope.items[i].category_id == '4') {
+          $scope.items[i].category_id = 'Meat'
+         }
+         else if ($scope.items[i].category_id == '5') {
+          $scope.items[i].category_id = 'Bakery'
+         }
+         else if ($scope.items[i].category_id == '6') {
+          $scope.items[i].category_id = 'Pantry'
+         }
+         else  {
+          $scope.items[i].category_id = 'Frozen'
+         }
+       }
+
       return response
     })
   };
 
 
   $scope.saveList = function() {
+    // console.log($scope.items[0].category_id)
+    console.log('!!!!!!!!!!!!!!!!');
+    // console.log($scope.items[0].category_id)
+    for(var i = 0; i < $scope.items.length; i ++) {
+      console.log($scope.items[i])
+
+      if ($scope.items[i].category_id === "Dairy") {
+        $scope.items[i].category_id = '1'
+      } else if ($scope.items[i].category_id === "Produce") {
+        $scope.items[i].category_id = '2'
+      } else if ($scope.items[i].category_id === 'Beverages') {
+        $scope.items[i].category_id = '3'
+      } else if ($scope.items[i].category_id === 'Meat') {
+        $scope.items[i].category_id = '4'
+      } else if ($scope.items[i].category_id === 'Bakery') {
+        $scope.items[i].category_id = '5'
+      } else if ($scope.items[i].category_id === 'Pantry') {
+        $scope.items[i].category_id = '6'
+      } else  {
+        $scope.items[i].category_id = '7'
+      }
+
+      console.log($scope.items[i])
+   }
+
+
+    console.log($scope.items[0].category_id)
+    console.log('*********************')
     console.log("Sent save request!");
     console.log($scope.items);
+
     var postData = {"ingredients": $scope.items}
+
     $http.post("https://recip-e.herokuapp.com/api/pantry", angular.toJson(postData))
     .then(function(response) {
       console.log(response)
@@ -125,7 +186,7 @@ angular.module("pantry.controller",[])
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
   $scope.$on('$ionicView.leave', function() {
-    // console.log("LEAVING");
+    console.log("LEAVING");
     $scope.saveList();
   });
 
