@@ -105,7 +105,7 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
   $urlRouterProvider.otherwise('/app/sign_in');
 
   $authProvider.configure({
-      apiUrl: 'https://recip-e.heroku-app.com/api'
+      apiUrl: 'https://recip-e.herokuapp.com/api'
   })
 
 });
