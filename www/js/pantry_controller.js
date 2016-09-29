@@ -73,6 +73,7 @@ angular.module("pantry.controller",[])
       $scope.closeItemForm();
     }, 100);
     this.item = "";
+    this.category = "";
   };
 
   $scope.addItem = function (item, category) {
@@ -125,6 +126,7 @@ angular.module("pantry.controller",[])
 
 
   $scope.saveList = function() {
+    if ($scope.items[0]) {
     // console.log($scope.items[0].category_id)
     console.log('!!!!!!!!!!!!!!!!');
     // console.log($scope.items[0].category_id)
@@ -155,7 +157,7 @@ angular.module("pantry.controller",[])
     console.log('*********************')
     console.log("Sent save request!");
     console.log($scope.items);
-
+}
     var postData = {"ingredients": $scope.items}
 
     $http.post("https://recip-e.herokuapp.com/api/pantry", angular.toJson(postData))
@@ -169,6 +171,13 @@ angular.module("pantry.controller",[])
   // Watch to see if we return to the page.
   $scope.$on('$ionicView.enter', function(view) {
     console.log("Pantry view entered");
+    // angular.element(document).find('select').empty()
+    // angular.element(document).find('select').val()
+
+    console.log(angular.element(document).find('select').val())
+    // angular.element(document).find('form').$setUntouched();
+    
+    // $scope.submitItemForm.$setPristine();
     // If we do then set all the checkboxes to false.
     // *** Needed to overwrite on a back.
     // Also, reset the delete buttons and the toggle display.
@@ -183,6 +192,10 @@ angular.module("pantry.controller",[])
   // If so stop before leaving the page and save to the database.
   $scope.$on('$ionicView.leave', function() {
     console.log("LEAVING");
+    console.log($scope.selections)
+    // angular.element(document).find('select').val(undefined)
+    // $scope.addItem.$setPristine();
+    // $scope.addItem.$setUntouched();
     $scope.saveList();
   });
 
