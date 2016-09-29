@@ -6,14 +6,31 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="submitItemForm()">
+    <form name="addItem" ng-submit="submitItemForm()">
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Ingredient</span>
           <input type="text" name="item" ng-model="item">
         </label>
+
+        <label class="cat-select item item-input item-select">
+           <div class="input-label">
+              Category
+           </div>
+           <select class="cat-value">
+              <option name="category" ng-model="category" ng-value="'Dairy'" >Dairy</option>
+              <option name="category" ng-model="category" ng-value="'Produce'">Produce</option>
+              <option name="category" ng-model="category" ng-value="'Beverages'">Beverages</option>
+              <option name="category" ng-model="category" ng-value="'Meat'">Meat</option>
+              <option name="category" ng-model="category" ng-value="'Bakery'">Bakery</option>
+              <option name="category" ng-model="category" ng-value="'Pantry'">Pantry</option>
+              <option name="category" ng-model="category" ng-value="'Frozen'">Frozen</option>
+           </select>
+        </label>
+
+
         <label class="item">
-          <button class="button button-block button-positive" type="submit"">Add Item</button>
+          <button class="button button-block button-positive" ng-click="reset(); form.$setPristine(); console.log('helloooooooo')" type="submit">Add Item</button>
         </label>
       </div>
     </form>
