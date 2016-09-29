@@ -23,7 +23,7 @@ angular.module("services", [])
   // PRIVATE METHOD
 
   var httpGetFavs = function ($ctrlScope) {
-    $http.get("http://localhost:3000/api/favorite_recipes")
+    $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
       .success(function(data) {
         $ctrlScope.favorite_recipes = data;
         return data;
@@ -31,7 +31,7 @@ angular.module("services", [])
   }
 
   var httpInitGetFavs = function() {
-    $http.get("http://localhost:3000/api/favorite_recipes")
+    $http.get("https://recip-e.herokuapp.com/api/favorite_recipes")
       .success(function(data) {
         return data;
       });
