@@ -28,6 +28,7 @@ angular.module("recipe.controller",[])
 		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body;
+      $scope.favorited = response.data.headers.favorited;
 		})
 	}
 

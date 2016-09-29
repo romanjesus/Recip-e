@@ -53,6 +53,7 @@ angular.module('starter', ['ionic', 'pantry.controller', 'services', 'recipe.con
 
   .state('app.favorites', {
     url: '/favorites/:userId',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/favorites.html',
