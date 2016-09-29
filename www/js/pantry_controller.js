@@ -78,12 +78,15 @@ angular.module("pantry.controller",[])
   };
 
   $scope.addItem = function (item, category) {
-    var item = item[0].toUpperCase() + item.slice(1)
-
-    console.log(item)
-
+    var category_names = ['Dairy', 'Produce', 'Beverages', 'Meat', 'Bakery', 'Pantry', 'Frozen'];
+    var categoryId;
+    console.log(category);
+    categoryId = category_names.indexOf(category);
+    console.log(categoryId);
+    var item = item[0].toUpperCase() + item.slice(1);
     if ($scope.items.indexOf(item) == -1) {
-    	$scope.items.push({name: item, category_id: category});
+    	$scope.itemsByCategory[categoryId].push({name: item, category_id: category});
+      $scope.items.push({name: item, category_id: category});
     }
   };
 
@@ -95,17 +98,16 @@ angular.module("pantry.controller",[])
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
       var temp_items = response.data;
+      $scope.items = response.data;
       console.log(temp_items);
       var category_array = [[], [], [], [], [], [], []];
       var category_names = ['Dairy', 'Produce', 'Beverages', 'Meat', 'Bakery', 'Pantry', 'Frozen'];
-      $scope.items = response.data;
       var j = 1;
       for (var i = 0; i < temp_items.length; i++) {
         if(temp_items[i].category_id == j){
           temp_items[i].category_id = category_names[j-1];
           category_array[j-1].push(temp_items[i]);
         } else {
-          console.log("else");
           j++;
           i--;
         }
