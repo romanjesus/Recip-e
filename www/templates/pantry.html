@@ -5,17 +5,17 @@
   </ion-nav-buttons>
 
 <ion-content class="has-footer">
-    <div class="card ingredient-list">
-
-      <ion-list ng-init="getList()" show-delete="data.showDelete" >
-
-        <ion-item ng-repeat="item in items" class="padding">
+  <div class="card ingredient-list">
+  <ion-list ng-init="getList()" show-delete="data.showDelete">
+      <ion-item ng-repeat="item in items">
+        <p class="center">
+          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)"><span><strong>{{item.name}}</strong> <br> {{ item.category_id }}</span></ion-checkbox>
           <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
-          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)">{{item.name}}</ion-checkbox>
-        </ion-item>
+        </p>
+      </ion-item>
+  </ion-list>
+  </div>
 
-      </ion-list>
-    </div>
 </ion-content>
 
   <ion-footer-bar class="pantry bar bar-dark" ng-controller="recipeController">
