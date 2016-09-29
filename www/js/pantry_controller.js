@@ -13,6 +13,19 @@ angular.module("pantry.controller",[])
   	showDelete: false
   };
 
+  $scope.catData = {
+    model: null,
+    Categories: [
+      'Dairy',
+      'Produce',
+      'Beverages',
+      'Meat',
+      'Bakery',
+      'Pantry',
+      'Frozen'
+    ]
+   };
+
 
   $ionicModal.fromTemplateUrl('templates/add_item.html', {
     scope: $scope
@@ -193,7 +206,12 @@ angular.module("pantry.controller",[])
   $scope.$on('$ionicView.leave', function() {
     console.log("LEAVING");
     console.log($scope.selections)
-    // angular.element(document).find('select').val(undefined)
+
+    console.log('!!!!!!!!!!bad news bears')
+    angular.element(document).find('select').remove()
+    if (angular.element(document).find('label').hasClass('cat-select')) {
+      angular.element(document).find('label').append("<select class='cat-value'><option name='category' ng-model=\"category\" ng-value=\"'Dairy'\" >Dairy</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Produce'\">Produce</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Beverages'\">Beverages</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Meat'\">Meat</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Bakery'\">Bakery</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Pantry'\">Pantry</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Frozen'\">Frozen</option></select>")
+    }
     // $scope.addItem.$setPristine();
     // $scope.addItem.$setUntouched();
     $scope.saveList();
