@@ -5,25 +5,30 @@
   </ion-nav-buttons>
 
 <ion-content class="has-footer">
-  <ion-list ng-init="getList()" show-delete="data.showDelete">
-      <ion-item ng-repeat="item in items">
-        <p class="center">
-          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)">{{item.name}}</ion-checkbox>
+    <div class="card ingredient-list">
+
+      <ion-list ng-init="getList()" show-delete="data.showDelete" >
+
+        <ion-item ng-repeat="item in items" class="padding">
           <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+          <ion-checkbox ng-model="item.checked" ng-init="item.checked=false" ng-click="countUpdate(item.checked)">{{item.name}}</ion-checkbox>
         </ion-item>
-      </p>
-  </ion-list>
+
+      </ion-list>
+    </div>
 </ion-content>
 
-  <ion-footer-bar class="bar bar-dark" ng-controller="recipeController">
+  <ion-footer-bar class="pantry bar bar-dark" ng-controller="recipeController">
 
-  	<div class="button-bar" ng-click="findRecipes()">
+  	<div class="pantry1 button-bar" ng-click="findRecipes()">
   		<a class="button icon-left ion-search" ng-click="saveList()" href='#/app/recipes'>Find Recipes</a>
     </div>
 
-    <div class="button-bar" ng-click="selectAllChecks()">
+    <div class="pantry2 button-bar" ng-click="selectAllChecks()">
       <a class="button icon-right ion-checkmark-round">{{selectToggle}} All</a>
     </div>
 
   </ion-footer-bar>
 </ion-view>
+            
+            

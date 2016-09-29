@@ -89,6 +89,7 @@ angular.module("pantry.controller",[])
   $scope.getList = function() {
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
+      console.log(response)
       console.log(response.data[0]);
       $scope.items = response.data;
       return response
@@ -102,6 +103,7 @@ angular.module("pantry.controller",[])
     var postData = {"ingredients": $scope.items}
     $http.post("https://recip-e.herokuapp.com/api/pantry", angular.toJson(postData))
     .then(function(response) {
+      console.log(response)
       console.log('Successfully saved!')
     })
   }

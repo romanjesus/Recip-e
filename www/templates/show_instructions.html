@@ -1,10 +1,11 @@
-<ion-view>
+<ion-view view-title="Instructions">
 	<ion-content>
-		<h1 class="center">Instructions</h1>
+		<div class="card">
 			<ion-list>
 				<ion-item ng-repeat="step in instructions" class="wrap" ng-click="speakText(step.step)">
 					<span>{{step.number}}: {{step.step}}</span>
 				</ion-item>
 			</ion-list>
+		</div>
 	</ion-content>
 </ion-view>
