@@ -1,12 +1,21 @@
 <ion-view view-title="My Favorite Recipes">
   <ion-content ng-controller="favoritesController">
-    <h1 class="page-title">My Favorite Recipes</h1>
-    <ion-list ng-init="getFavorites()" show-delete="shouldShowDelete">
-      <ion-item ng-repeat="recipe in favorite_recipes">
-        <button class="button button-clear button-assertive" ng-click="deleteFavorite(recipe)"><i class="ion-minus-circled" height="60px"> </i></button>
-        <a href="/#/app/recipes/{{recipe.body.id}}"><img ng-src="{{recipe.body.image}}" alt="{{recipe.body.title}}" height="100px"></a>
-        <p>{{recipe.body.title}}</p>
-      </ion-item>
-    </ion-list>
+
+  <div class="card list" ng-init="getFavorites()">
+    <div class="item center" show-delete="shouldShowDelete" ng-repeat="recipe in favorite_recipes">
+
+      <a  class="this subdued item-thumbnail-left"
+          href="/#/app/recipes/{{recipe.body.id}}">
+        <img ng-src="{{recipe.body.image}}" alt="{{recipe.body.title}}">
+        <h2 class="recipe-list">{{recipe.body.title}}</h2>
+      </a>
+      <br>
+      <button class="button button-clear button-assertive" ng-click="deleteFavorite(recipe)">
+        <i class="delete-button ion-minus-circled "> </i>
+      </button>
+
+    </div>
+  </div>
+
   </ion-content>
 </ion-view>

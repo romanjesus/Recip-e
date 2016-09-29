@@ -11,7 +11,7 @@ h2.recipe-list{
 }
 
 .center{
-  text-align:center;
+  text-align: center;
 }
 
 .text-size {
@@ -99,4 +99,12 @@ div.item-content{
 
 .favorited {
   color: red;
+}
+
+.this{
+  display: inline-block;
+}
+
+i.delete-button {
+  font-size: 35px;
 }
