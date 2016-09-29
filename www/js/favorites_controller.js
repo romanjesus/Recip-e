@@ -7,7 +7,7 @@
   }
 
   $scope.deleteFavorite = function(recipe) {
-    $http.delete("https://recip-e.herokuapp.com/api/favorite_recipes/" + recipe.body.id)
+    $http.delete("http://localhost:3000/api/favorite_recipes/" + recipe.body.id)
     .success(function(data){
       $scope.favorite_recipes = data;
     })

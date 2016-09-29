@@ -62,10 +62,7 @@ angular.module("pantry.controller",[])
 
 
   $scope.submitItemForm = function() {
-    var input = this.item;
-    if(input.length > 0){
-    	$scope.addItem(input);
-  	}
+
     var category = angular.element(document).find('select').val();
     var item = this.item;
     console.log('Adding Item:', item);
@@ -95,7 +92,7 @@ angular.module("pantry.controller",[])
   };
 
   $scope.getList = function() {
-    $http.get("https://recip-e.herokuapp.com/api/pantry")
+    $http.get("http://localhost:3000/api/pantry")
     .then(function(response){
 
       $scope.items = response.data;
@@ -149,7 +146,7 @@ angular.module("pantry.controller",[])
     }
     var postData = {"ingredients": $scope.items}
 
-    $http.post("https://recip-e.herokuapp.com/api/pantry", angular.toJson(postData))
+    $http.post("http://localhost:3000/api/pantry", angular.toJson(postData))
     .then(function(response) {
       // response
     })
