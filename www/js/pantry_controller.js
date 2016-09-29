@@ -94,30 +94,24 @@ angular.module("pantry.controller",[])
   $scope.getList = function() {
     $http.get("https://recip-e.herokuapp.com/api/pantry")
     .then(function(response){
-
+      var temp_items = response.data;
+      console.log(temp_items);
+      var category_array = [[], [], [], [], [], [], []];
+      var category_names = ['Dairy', 'Produce', 'Beverages', 'Meat', 'Bakery', 'Pantry', 'Frozen'];
       $scope.items = response.data;
-      for(var i = 0; i < $scope.items.length; i ++) {
-        if ($scope.items[i].category_id == '1') {
-          $scope.items[i].category_id = 'Dairy'
-        } else if ($scope.items[i].category_id == '2') {
-          $scope.items[i].category_id = 'Produce'
-        }
-        else if ($scope.items[i].category_id == '3') {
-          $scope.items[i].category_id = 'Beverages'
-        }
-        else if ($scope.items[i].category_id == '4') {
-          $scope.items[i].category_id = 'Meat'
-        }
-        else if ($scope.items[i].category_id == '5') {
-          $scope.items[i].category_id = 'Bakery'
-        }
-        else if ($scope.items[i].category_id == '6') {
-          $scope.items[i].category_id = 'Pantry'
-        }
-        else  {
-          $scope.items[i].category_id = 'Frozen'
+      var j = 1;
+      for (var i = 0; i < temp_items.length; i++) {
+        if(temp_items[i].category_id == j){
+          temp_items[i].category_id = category_names[j-1];
+          category_array[j-1].push(temp_items[i]);
+        } else {
+          console.log("else");
+          j++;
+          i--;
         }
       }
+      console.log(category_array);
+      $scope.itemsByCategory = category_array;
       return response
     })
 
