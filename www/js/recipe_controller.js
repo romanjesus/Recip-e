@@ -82,6 +82,7 @@ angular.module("recipe.controller",[])
     })
   }
 
+
   // 'PRIVATE' METHODS
 
 	var cleanList = function(items) {
@@ -97,7 +98,6 @@ angular.module("recipe.controller",[])
 		$http.post("http://localhost:3000/api/recipe", angular.toJson(recipe_id))
 		.then(function(response){
 			$rootScope.recipe = response.data.body
-      console.log(response.data.headers.favorited);
       $scope.favorited = response.data.headers.favorited;
 			console.log(response);
 		})

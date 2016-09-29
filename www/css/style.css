@@ -85,8 +85,18 @@ div.item-content{
 }
 
 .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
-  background: #da2939 !important; 
+  background: #da2939 !important;
   border-color: white !important;
 }
 
+.fav-button {
+  background-color: white;
+}
 
+.fav-icon{
+  font-size: 25px;
+}
+
+.favorited {
+  color: red;
+}

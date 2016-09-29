@@ -3,24 +3,11 @@
 		<div class="list card">
 		  <div class="center">
 		    <h1 class="recipe-header">{{recipe.title}}</h1>
-        <div id="favorite-button" ng-if="!favorited">
-  		    <p class="button" ng-click="addFavorite(recipe)">
-  		    	<i class="icon-left ion-heart"></i>
-  		    	<span class="center"> Favorite this recipe </span>
-  		    	<i class= "icon-right ion-heart"></i>
+  		    <p class="button fav-button " ng-click="addFavorite(recipe)">
+  		    	<i class="icon-left ion-heart fav-icon" ng-class="favorited"></i>
+  		    	<span class="center"></span>
   		    </p>
-        </div>
-        <div id="unfavorite-button" ng-if="favorited">
-          <p class="button" ng-click="deleteFavorite(recipe)">
-            <i class="icon-left ion-heart"></i>
-            <span class="center"> Unfavorite this recipe </span>
-            <i class= "icon-right ion-heart"></i>
-          </p>
-        </div>
 		  </div>
-
-		  <br>
-
 		  <div class="item item-image">
 		    <img src="{{recipe.image}}">
 		  </div>
