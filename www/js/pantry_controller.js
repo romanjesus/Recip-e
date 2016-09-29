@@ -1,6 +1,6 @@
 angular.module("pantry.controller",[])
 
-.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes){
+.controller("pantryController", ['$scope', '$ionicModal', '$timeout', '$http', '$state', 'returnedRecipes', 'favorites', function($scope, $ionicModal, $timeout, $http, $state, returnedRecipes, favorites){
 
   var myItems = $scope.items;
 
@@ -62,6 +62,7 @@ angular.module("pantry.controller",[])
 
 
   $scope.submitItemForm = function() {
+
     var category = angular.element(document).find('select').val();
     var item = this.item;
     console.log('Adding Item:', item);
@@ -95,34 +96,32 @@ angular.module("pantry.controller",[])
     .then(function(response){
 
       $scope.items = response.data;
-
-
       for(var i = 0; i < $scope.items.length; i ++) {
-       if ($scope.items[i].category_id == '1') {
-        $scope.items[i].category_id = 'Dairy'
-      } else if ($scope.items[i].category_id == '2') {
-        $scope.items[i].category_id = 'Produce'
+        if ($scope.items[i].category_id == '1') {
+          $scope.items[i].category_id = 'Dairy'
+        } else if ($scope.items[i].category_id == '2') {
+          $scope.items[i].category_id = 'Produce'
+        }
+        else if ($scope.items[i].category_id == '3') {
+          $scope.items[i].category_id = 'Beverages'
+        }
+        else if ($scope.items[i].category_id == '4') {
+          $scope.items[i].category_id = 'Meat'
+        }
+        else if ($scope.items[i].category_id == '5') {
+          $scope.items[i].category_id = 'Bakery'
+        }
+        else if ($scope.items[i].category_id == '6') {
+          $scope.items[i].category_id = 'Pantry'
+        }
+        else  {
+          $scope.items[i].category_id = 'Frozen'
+        }
       }
-      else if ($scope.items[i].category_id == '3') {
-        $scope.items[i].category_id = 'Beverages'
-      }
-      else if ($scope.items[i].category_id == '4') {
-        $scope.items[i].category_id = 'Meat'
-      }
-      else if ($scope.items[i].category_id == '5') {
-        $scope.items[i].category_id = 'Bakery'
-      }
-      else if ($scope.items[i].category_id == '6') {
-        $scope.items[i].category_id = 'Pantry'
-      }
-      else  {
-        $scope.items[i].category_id = 'Frozen'
-      }
-    }
+      return response
+    })
 
-    return response
-  })
-  };
+  }
 
 
   $scope.saveList = function() {
@@ -149,15 +148,13 @@ angular.module("pantry.controller",[])
 
     $http.post("https://recip-e.herokuapp.com/api/pantry", angular.toJson(postData))
     .then(function(response) {
-      console.log('Successfully saved!')
+      // response
     })
   }
 
 
   // Watch to see if we return to the page.
   $scope.$on('$ionicView.enter', function(view) {
-    console.log("Pantry view entered");
-
     // If we do then set all the checkboxes to false.
     // *** Needed to overwrite on a back.
     // Also, reset the delete buttons and the toggle display.
@@ -166,18 +163,17 @@ angular.module("pantry.controller",[])
     }
     $scope.data.showDelete = false;
     $scope.selectToggle = "Select";
+    favorites.initializeFavorites();
   });
+
 
   // Watch to see if we leave the page.
   // If so stop before leaving the page and save to the database.
   $scope.$on('$ionicView.leave', function() {
-    console.log("LEAVING");
-    
     angular.element(document).find('select').remove()
     if (angular.element(document).find('label').hasClass('cat-select')) {
       angular.element(document).find('label').append("<select class='cat-value'><option name='category' ng-model=\"category\" ng-value=\"'Dairy'\" >Dairy</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Produce'\">Produce</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Beverages'\">Beverages</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Meat'\">Meat</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Bakery'\">Bakery</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Pantry'\">Pantry</option><option name=\"category\" ng-model=\"category\" ng-value=\"'Frozen'\">Frozen</option></select>")
     }
-
     $scope.saveList();
   });
 

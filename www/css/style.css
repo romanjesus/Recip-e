@@ -11,7 +11,7 @@ h2.recipe-list{
 }
 
 .center{
-  text-align:center;
+  text-align: center;
 }
 
 .text-size {
@@ -85,8 +85,26 @@ div.item-content{
 }
 
 .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
-  background: #da2939 !important; 
+  background: #da2939 !important;
   border-color: white !important;
 }
 
+.fav-button {
+  background-color: white;
+}
 
+.fav-icon{
+  font-size: 25px;
+}
+
+.favorited {
+  color: red;
+}
+
+.this{
+  display: inline-block;
+}
+
+i.delete-button {
+  font-size: 35px;
+}
