@@ -92,6 +92,19 @@ angular.module("pantry.controller",[])
 
   $scope.removeItem = function (index) {
   	$scope.items.splice(index, 1);
+    var done = false;
+    var i = 0;
+    var passedLength = 0;
+    while (!done){
+      if($scope.itemsByCategory[i].length + passedLength > index){
+        console.log($scope.itemsByCategory[i][index - passedLength]);
+        done = true;
+      } else {
+        passedLength += $scope.itemsByCategory[i].length;
+        console.log(passedLength);
+        i++;
+      }
+    }
   };
 
   $scope.getList = function() {
