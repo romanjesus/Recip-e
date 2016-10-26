@@ -14,9 +14,9 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 #Team Members:
 
 + Jesus Roman ([LinkedIn](https://www.linkedin.com/in/romanjesus) | [Github](https://github.com/romanjesus) )
-+ Matthew Behrens ([LinkedIn](https://www.linkedin.com/in/matthew-behrens) | [Github](https://github.com/MatthewBehrens))
-+ Nicholas Block ([LinkedIn](https://www.linkedin.com/in/nicholasblock78) | [Github](https://github.com/nicholasblock78))
-+ William Huebler ([LinkedIn](https://www.linkedin.com/in/william-huebler-512180100) | Github (https://github.com/hueblerw))
++ Matthew Behrens ([LinkedIn](https://www.linkedin.com/in/matthew-behrens) | [Github](https://github.com/MatthewBehrens) )
++ Nicholas Block ([LinkedIn](https://www.linkedin.com/in/nicholasblock78) | [Github](https://github.com/nicholasblock78) )
++ William Huebler ([LinkedIn](https://www.linkedin.com/in/william-huebler-512180100) | [Github] (https://github.com/hueblerw) )
 
 #Screenshots
 
@@ -38,4 +38,3 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 * Heroku
 * HTML5
 * CSS
-*
