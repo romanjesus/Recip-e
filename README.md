@@ -25,7 +25,7 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 
 <img src="http://i.imgur.com/9mt9YQP.png" width="280">
 <img src="http://i.imgur.com/XRHMv4l.png" width="280">
-<img src="http://i.imgur.com/d5HBcCK.png" width="280">
+<img src="http://i.imgur.com/22UE7kA.png" width="280">
 <img src="http://i.imgur.com/HprYSdH.png" width="280">
 <img src="http://i.imgur.com/ePwh1vi.png" width="280">
 
