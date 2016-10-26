@@ -8,19 +8,15 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 
 [Download now on the Google Play Store!](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
 
-
-![alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)
-
-
 [![Alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
 
 
 #Team Members:
 
-+ [Jesus Roman](https://www.linkedin.com/in/romanjesus)
-+ [Matthew Behrens](https://www.linkedin.com/in/matthew-behrens)
-+ [Nicholas Block](https://www.linkedin.com/in/nicholasblock78)
-+ [William Huebler](https://www.linkedin.com/in/william-huebler-512180100)
++ Jesus Roman ([LinkedIn](https://www.linkedin.com/in/romanjesus) | [Github](https://github.com/romanjesus) )
++ Matthew Behrens ([LinkedIn](https://www.linkedin.com/in/matthew-behrens) | [Github](https://github.com/MatthewBehrens))
++ Nicholas Block ([LinkedIn](https://www.linkedin.com/in/nicholasblock78) | [Github](https://github.com/nicholasblock78))
++ William Huebler ([LinkedIn](https://www.linkedin.com/in/william-huebler-512180100) | Github (https://github.com/hueblerw))
 
 #Screenshots
 
