@@ -23,11 +23,11 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 #Screenshots
 
 
-<img src="http://i.imgur.com/9mt9YQP.png" width="300">
-<img src="http://i.imgur.com/XRHMv4l.png" width="300">
-<img src="http://i.imgur.com/d5HBcCK.png" width="300">
-<img src="http://i.imgur.com/HprYSdH.png" width="300">
-<img src="http://i.imgur.com/ePwh1vi.png" width="300">
+<img src="http://i.imgur.com/9mt9YQP.png" width="280">
+<img src="http://i.imgur.com/XRHMv4l.png" width="280">
+<img src="http://i.imgur.com/d5HBcCK.png" width="280">
+<img src="http://i.imgur.com/HprYSdH.png" width="280">
+<img src="http://i.imgur.com/ePwh1vi.png" width="280">
 
 
 #Technologies Used
