@@ -8,6 +8,13 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 
 [Download now on the Google Play Store!](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
 
+
+![alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)
+
+
+[![Alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
+
+
 #Team Members:
 
 + [Jesus Roman](https://www.linkedin.com/in/romanjesus)
@@ -22,3 +29,17 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 ![alt text](http://i.imgur.com/d5HBcCK.png "Recipe Results")
 ![alt text](http://i.imgur.com/HprYSdH.png "Recipe View")
 ![alt text](http://i.imgur.com/ePwh1vi.png "Recipe Ingredients")
+
+#Technologies Used
+
+* Ruby on Rails 5
+* Ionic
+* Angular JS
+* Phonegap
+* Spoonacular API
+* Memcachier
+* Postgresql
+* Heroku
+* HTML5
+* CSS
+*
