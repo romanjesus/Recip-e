@@ -6,9 +6,11 @@ All recipes come from Spoonacular's recipes database, which contains over 330,00
 
 This application is the product of a hackathon project for Dev Bootcamp's Web Developer program. The goal was to create a fully functioning application that solved an everyday problem. None of the team members had any previous experience developing mobile applications.
 
-[Download now on the Google Play Store!](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
+<!-- [Download now on the Google Play Store!](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174) -->
 
-[![Alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174)
+<!-- [![Alt text](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174) -->
+
+<a href="https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" aling="middle" width="200"></a>
 
 
 #Team Members:
@@ -20,21 +22,23 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 
 #Screenshots
 
-![alt text](http://i.imgur.com/9mt9YQP.png "Pantry List")
-![alt text](http://i.imgur.com/XRHMv4l.png "Checked Pantry List")
-![alt text](http://i.imgur.com/d5HBcCK.png "Recipe Results")
-![alt text](http://i.imgur.com/HprYSdH.png "Recipe View")
-![alt text](http://i.imgur.com/ePwh1vi.png "Recipe Ingredients")
+
+<img src="http://i.imgur.com/9mt9YQP.png" width="300">
+<img src="http://i.imgur.com/XRHMv4l.png" width="300">
+<img src="http://i.imgur.com/d5HBcCK.png" width="300">
+<img src="http://i.imgur.com/HprYSdH.png" width="300">
+<img src="http://i.imgur.com/ePwh1vi.png" width="300">
+
 
 #Technologies Used
 
-* Ruby on Rails 5
-* Ionic
-* Angular JS
-* Phonegap
-* Spoonacular API
-* Memcachier
-* Postgresql
-* Heroku
-* HTML5
-* CSS
+* [Ruby on Rails 5](http://guides.rubyonrails.org/5_0_release_notes.html)
+* [Ionic Framework](http://ionicframework.com/)
+* [Angular JS](https://angularjs.org/)
+* [Phonegap](http://phonegap.com/)
+* [Spoonacular API](https://market.mashape.com/spoonacular/recipe-food-nutrition)
+* [Memcachier](https://www.memcachier.com/)
+* [Postgresql](https://www.postgresql.org/)
+* [Heroku](https://www.heroku.com/)
+* [HTML5](http://www.w3schools.com/html/html5_intro.asp)
+* [CSS](http://www.w3schools.com/css/css_intro.asp)
