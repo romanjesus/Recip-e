@@ -12,6 +12,7 @@
       $scope.favorite_recipes = data;
     })
     .error(function(data) {
+      console.log(data)
       alert("ERROR");
     })
   }

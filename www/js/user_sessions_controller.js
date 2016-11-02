@@ -9,7 +9,7 @@ angular.module('userSessions.controller', [])
     });
 
     $scope.$on('auth:login-error', function(ev, reason) {
-      $scope.error = reason.errors[0];
+      $scope.errors = reason.errors;
     });
 
     $rootScope.$on('auth:logout-success', function() {
