@@ -1,7 +1,7 @@
 <ion-view view-title="Log In">
   <ion-content>
-    <div class="alert alert-danger" role="alert" ng-show="error">
-      {{error}}
+    <div class="alert alert-danger" role="alert" ng-repeat="error in errors">
+        <li class="padding">{{error}}</li>
     </div>
     <div class="list list-inset">
 

@@ -20,7 +20,7 @@ angular.module("user.controller",[])
   });
 
   $scope.$on('auth:registration-email-error', function(ev, reason) {
-    $scope.error = "Invalid registration entry!"
+    $scope.errors = reason.errors.full_messages;
   });
 }])
 
