@@ -13,14 +13,14 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 <a href="https://play.google.com/store/apps/details?id=com.ionicframework.recipefrontend129174"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" aling="middle" width="200"></a>
 
 
-#Team Members:
+# Team Members:
 
 + Jesus Roman ([LinkedIn](https://www.linkedin.com/in/romanjesus) | [Github](https://github.com/romanjesus))
 + Matthew Behrens ([LinkedIn](https://www.linkedin.com/in/matthew-behrens) | [Github](https://github.com/MatthewBehrens))
 + Nicholas Block ([LinkedIn](https://www.linkedin.com/in/nicholasblock78) | [Github](https://github.com/nicholasblock78))
 + William Huebler ([LinkedIn](https://www.linkedin.com/in/william-huebler-512180100) | [Github] (https://github.com/hueblerw))
 
-#Screenshots
+# Screenshots
 
 
 <img src="http://i.imgur.com/9mt9YQP.png" width="280">
@@ -30,7 +30,7 @@ This application is the product of a hackathon project for Dev Bootcamp's Web De
 <img src="http://i.imgur.com/ePwh1vi.png" width="280">
 
 
-#Technologies Used
+# Technologies Used
 
 * [Ruby on Rails 5](http://guides.rubyonrails.org/5_0_release_notes.html)
 * [Ionic Framework](http://ionicframework.com/)
